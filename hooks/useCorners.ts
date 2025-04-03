@@ -13,11 +13,9 @@ export default function useCorners() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const corners = scene.getObjectByName("Corners") as Mesh;
-        corners.material = getCornersMaterial();
-        render();
-      }
+      const corners = scene.getObjectByName("Corners") as Mesh;
+      corners.material = getCornersMaterial();
+      render();
     }
   }, [getScene, render, getCornersMaterial, houseIsInScene])
 }

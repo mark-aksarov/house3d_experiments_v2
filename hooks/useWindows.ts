@@ -19,25 +19,23 @@ export default function useWindows() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        scene.traverse(object => {
-          if (object instanceof Mesh) {
-            if (object.name.startsWith("WindowSash")) {
-              object.material = getWindowSashMaterial();
-            }
-            else if (object.name.startsWith("WindowFrame")) {
-              object.material = getWindowFrameMaterial();
-            }
-            else if (object.name.startsWith("WindowBlinds")) {
-              object.material = getBlindsMaterial();
-            }
-            else if (object.name.startsWith("WindowGlass")) {
-              object.material = getGlassMaterial();
-            }
+      scene.traverse(object => {
+        if (object instanceof Mesh) {
+          if (object.name.startsWith("WindowSash")) {
+            object.material = getWindowSashMaterial();
           }
-        })
-        render();
-      }
+          else if (object.name.startsWith("WindowFrame")) {
+            object.material = getWindowFrameMaterial();
+          }
+          else if (object.name.startsWith("WindowBlinds")) {
+            object.material = getBlindsMaterial();
+          }
+          else if (object.name.startsWith("WindowGlass")) {
+            object.material = getGlassMaterial();
+          }
+        }
+      })
+      render();
     }
   }, [getScene, render, getBlindsMaterial, getWindowSashMaterial, getWindowFrameMaterial, getGlassMaterial, houseIsInScene])
 }

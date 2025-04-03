@@ -15,17 +15,15 @@ export default function useRoof() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const roofCover = scene.getObjectByName("RoofCover") as Mesh;
-        roofCover.material = getRoofCoverMaterial();
+      const roofCover = scene.getObjectByName("RoofCover") as Mesh;
+      roofCover.material = getRoofCoverMaterial();
 
-        const roofBottom = scene.getObjectByName("RoofBottom") as Mesh;
-        const roofSupport = scene.getObjectByName("RoofSupport") as Mesh;
-        roofBottom.material = getRoofMaterial();
-        roofSupport.material = getRoofMaterial();
+      const roofBottom = scene.getObjectByName("RoofBottom") as Mesh;
+      const roofSupport = scene.getObjectByName("RoofSupport") as Mesh;
+      roofBottom.material = getRoofMaterial();
+      roofSupport.material = getRoofMaterial();
 
-        render();
-      }
+      render();
     }
   }, [getScene, render, getRoofCoverMaterial, getRoofMaterial, houseIsInScene])
 }

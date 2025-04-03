@@ -13,16 +13,14 @@ export default function useFence() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const fence = scene.getObjectByName("PorchRailings") as Mesh;
-        const columns = scene.getObjectByName("Columns") as Mesh;
+      const fence = scene.getObjectByName("PorchRailings") as Mesh;
+      const columns = scene.getObjectByName("Columns") as Mesh;
 
-        const material = getFenceMaterial();
-        fence.material = material;
-        columns.material = material;
+      const material = getFenceMaterial();
+      fence.material = material;
+      columns.material = material;
 
-        render();
-      }
+      render();
     }
   }, [getScene, render, getFenceMaterial, houseIsInScene])
 }

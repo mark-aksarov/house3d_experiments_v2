@@ -4,7 +4,7 @@ import { createContext, Dispatch, SetStateAction, useContext } from 'react';
 export interface HouseContext {
   houseIsInScene: boolean;
   modelName: ModelName;
-  setModelName: Dispatch<SetStateAction<ModelName>>
+  setModelName: Dispatch<SetStateAction<ModelName>>;
 };
 
 export const HouseContext = createContext<HouseContext | null>(null);

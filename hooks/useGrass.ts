@@ -13,11 +13,9 @@ export default function useGrass() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const grass = scene.getObjectByName("Ground") as Mesh;
-        grass.material = getMaterial();
-        render();
-      }
+      const grass = scene.getObjectByName("Ground") as Mesh;
+      grass.material = getMaterial();
+      render();
     }
   }, [getScene, render, getMaterial, houseIsInScene])
 }

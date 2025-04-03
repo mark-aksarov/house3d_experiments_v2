@@ -15,19 +15,17 @@ export default function useGates() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        scene.traverse(object => {
-          if (object instanceof Mesh) {
-            if (object.name.startsWith("GatesDoor")) {
-              object.material = getGatesDoorMaterial();
-            }
-            else if (object.name.startsWith("GatesFrame")) {
-              object.material = getGatesFrameMaterial();
-            }
+      scene.traverse(object => {
+        if (object instanceof Mesh) {
+          if (object.name.startsWith("GatesDoor")) {
+            object.material = getGatesDoorMaterial();
           }
-        })
-        render();
-      }
+          else if (object.name.startsWith("GatesFrame")) {
+            object.material = getGatesFrameMaterial();
+          }
+        }
+      })
+      render();
     }
   }, [getScene, render, getGatesDoorMaterial, getGatesFrameMaterial, houseIsInScene])
 }

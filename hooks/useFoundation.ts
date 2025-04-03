@@ -13,11 +13,9 @@ export default function useFoundation() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const foundation = scene.getObjectByName("Foundation") as Mesh;
-        foundation.material = getMaterial();
-        render();
-      }
+      const foundation = scene.getObjectByName("Foundation") as Mesh;
+      foundation.material = getMaterial();
+      render();
     }
   }, [getScene, render, getMaterial, houseIsInScene])
 }

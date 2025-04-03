@@ -13,11 +13,9 @@ export default function usePaving() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const paving = scene.getObjectByName("Paving") as Mesh;
-        paving.material = getMaterial();
-        render();
-      }
+      const paving = scene.getObjectByName("Paving") as Mesh;
+      paving.material = getMaterial();
+      render();
     }
   }, [getScene, render, getMaterial, houseIsInScene])
 }

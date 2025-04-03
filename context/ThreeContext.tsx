@@ -7,7 +7,6 @@ interface ThreeContextType {
   getCamera(): PerspectiveCamera,
   getScene(): Scene,
   getRenderer(): WebGLRenderer,
-  isFirstRenderComplete: boolean,
 }
 
 export const ThreeContext = createContext<ThreeContextType | null>(null);
@@ -22,9 +21,6 @@ export const ThreeProvider = ({
 }) => {
   const getCanvasRef = useGetCanvasRef();
   const isRenderingRef = useRef(false);
-
-  //the loading overlay is displayed on top of scene until all objects in scene have been drawn.
-  const [isFirstRenderComplete, setIsFirstRenderComplete] = useState(false);
 
   //renderer
   const rendererRef = useRef<WebGLRenderer | null>(null);
@@ -86,7 +82,6 @@ export const ThreeProvider = ({
       requestAnimationFrame(() => {
         getRenderer().render(getScene(), getCamera());
         isRenderingRef.current = false;
-        setIsFirstRenderComplete(true);
       });
     }
   }, [getRenderer, getScene, getCamera])
@@ -98,7 +93,6 @@ export const ThreeProvider = ({
         getCamera,
         getScene,
         getRenderer,
-        isFirstRenderComplete
       }}
     >
       {children}

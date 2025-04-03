@@ -13,11 +13,9 @@ export default function useWalls() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        const walls = scene.getObjectByName("Walls") as Mesh;
-        walls.material = getMaterial();
-        render();
-      }
+      const walls = scene.getObjectByName("Walls") as Mesh;
+      walls.material = getMaterial();
+      render();
     }
   }, [getScene, render, getMaterial, houseIsInScene])
 }

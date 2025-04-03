@@ -15,19 +15,17 @@ export default function useDoors() {
     if (houseIsInScene) {
       const scene = getScene();
 
-      if (scene) {
-        scene.traverse(object => {
-          if (object instanceof Mesh) {
-            if (object.name.startsWith("DoorFrame") || object.name.startsWith("DoorPanel")) {
-              object.material = getDoorPanelMaterial();
-            }
-            else if (object.name.startsWith("DoorHandle") || object.name.startsWith("DoorHinges")) {
-              object.material = getDoorHandleAndHingesMaterial();
-            }
+      scene.traverse(object => {
+        if (object instanceof Mesh) {
+          if (object.name.startsWith("DoorFrame") || object.name.startsWith("DoorPanel")) {
+            object.material = getDoorPanelMaterial();
           }
-        })
-        render();
-      }
+          else if (object.name.startsWith("DoorHandle") || object.name.startsWith("DoorHinges")) {
+            object.material = getDoorHandleAndHingesMaterial();
+          }
+        }
+      })
+      render();
     }
   }, [getScene, render, getDoorPanelMaterial, getDoorHandleAndHingesMaterial, houseIsInScene])
 }

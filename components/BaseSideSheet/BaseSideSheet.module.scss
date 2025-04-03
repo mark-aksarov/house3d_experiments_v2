@@ -1,0 +1,9 @@
+.sideSheet {
+  max-height: calc(100dvh - var(--header-height) - var(--space-5) * 2);
+  top: calc(var(--header-height) / 2 + 50%);
+  left: calc(3.375rem + var(--space-5) * 2);
+}
+
+.sideSheetBody {
+  padding: var(--space-1) 0;
+}
