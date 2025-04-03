@@ -1,0 +1,59 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .typography {
+    color: var(--color-text-default);
+  }
+
+  .display1 {
+    @include mixins.display1;
+  }
+
+  .display2 {
+    @include mixins.display2;
+  }
+
+  .header1 {
+    @include mixins.header1;
+  }
+
+  .header2 {
+    @include mixins.header2;
+  }
+
+  .header3 {
+    @include mixins.header3;
+  }
+
+  .header4 {
+    @include mixins.header4;
+  }
+
+  .header5 {
+    @include mixins.header5;
+  }
+
+  .header6 {
+    @include mixins.header6;
+  }
+
+  .body1 {
+    @include mixins.body1;
+  }
+
+  .body2 {
+    @include mixins.body2;
+  }
+
+  .body3 {
+    @include mixins.body3;
+  }
+
+  .body4 {
+    @include mixins.body4;
+  }
+
+  .code {
+    @include mixins.code;
+  }
+}

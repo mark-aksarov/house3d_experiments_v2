@@ -1,0 +1,34 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .sideSheet {
+    left: var(--space-5);
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+    transform-origin: top left;
+  }
+
+  .sideSheetAppear,
+  .sideSheetEnter {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  .sideSheetAppearActive,
+  .sideSheetEnterActive {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    transition: all 150ms;
+  }
+
+  .sideSheetExit {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .sideSheetExitActive {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.9);
+    transition: all 150ms;
+  }
+}

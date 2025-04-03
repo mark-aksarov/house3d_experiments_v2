@@ -1,0 +1,9 @@
+@use 'uikit/styles/mixins';
+
+.toastContainer {
+  top: calc(var(--header-height));
+
+  @include mixins.breakpoint-less-than(md) {
+    padding: var(--space-3);
+  }
+}

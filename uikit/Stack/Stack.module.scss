@@ -1,0 +1,147 @@
+@use 'uikit/styles/breakpoints';
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .stack {
+    display: flex;
+  }
+
+  //wrap
+  .wrap-wrap {
+    flex-wrap: wrap;
+  }
+
+  .wrap-no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  @each $key, $value in breakpoints.$breakpoints {
+    @include mixins.breakpoint-greater-than($key) {
+      .wrap-#{$key}-wrap {
+        flex-wrap: wrap;
+      }
+
+      .wrap-#{$key}-nowrap {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  //direction
+  .direction-horizontal {
+    flex-direction: row;
+  }
+
+  .direction-vertical {
+    flex-direction: column;
+  }
+
+  @each $key, $value in breakpoints.$breakpoints {
+    @include mixins.breakpoint-greater-than($key) {
+      .direction-#{$key}-horizontal {
+        flex-direction: row;
+      }
+
+      .direction-#{$key}-vertical {
+        flex-direction: column;
+      }
+    }
+  }
+
+  //justifyContent
+  .justifyContent-flex-start {
+    justify-content: flex-start;
+  }
+
+  .justifyContent-flex-end {
+    justify-content: flex-end;
+  }
+
+  .justifyContent-center {
+    justify-content: center;
+  }
+
+  .justifyContent-space-between {
+    justify-content: space-between;
+  }
+
+  .justifyContent-space-around {
+    justify-content: space-around;
+  }
+
+  @each $key, $value in breakpoints.$breakpoints {
+    @include mixins.breakpoint-greater-than($key) {
+      .justifyContent-#{$key}-flex-start {
+        justify-content: flex-start;
+      }
+
+      .justifyContent-#{$key}-flex-end {
+        justify-content: flex-end;
+      }
+
+      .justifyContent-#{$key}-center {
+        justify-content: center;
+      }
+
+      .justifyContent-#{$key}-space-between {
+        justify-content: space-between;
+      }
+
+      .justifyContent-#{$key}-space-around {
+        justify-content: space-around;
+      }
+    }
+  }
+
+  //alignItems
+  .alignItems-flex-start {
+    align-items: flex-start;
+  }
+
+  .alignItems-flex-end {
+    align-items: flex-end;
+  }
+
+  .alignItems-center {
+    align-items: center;
+  }
+
+  .alignItems-stretch {
+    align-items: stretch;
+  }
+
+  @each $key, $value in breakpoints.$breakpoints {
+    @include mixins.breakpoint-greater-than($key) {
+      .alignItems-#{$key}-flex-start {
+        align-items: flex-start;
+      }
+
+      .alignItems-#{$key}-flex-end {
+        align-items: flex-end;
+      }
+
+      .alignItems-#{$key}-center {
+        align-items: center;
+      }
+
+      .alignItems-#{$key}-stretch {
+        align-items: stretch;
+      }
+    }
+  }
+
+  //spacing
+  @for $i from 1 through 15 {
+    .spacing-#{$i} {
+      gap: var(--space-#{$i});
+    }
+
+    @each $key, $value in breakpoints.$breakpoints {
+      @include mixins.breakpoint-greater-than($key) {
+        .spacing-#{$key}-#{$i} {
+          gap: var(--space-#{$i});
+        }
+      }
+    }
+  }
+}

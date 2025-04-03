@@ -1,0 +1,50 @@
+@layer uikit {
+  .speedDial {
+    position: relative;
+    z-index: var(--z-speed-dial);
+  }
+
+  .fab {
+    svg {
+      transition: transform 0.15s ease;
+    }
+
+    &.open svg {
+      transform: rotate(45deg);
+    }
+  }
+
+  .actionsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 0.15s ease;
+
+    &>.action {
+      position: absolute;
+
+      &:nth-child(1) {
+        transform: translate(calc((100% + var(--space-5)) * -1), 0);
+      }
+
+      &:nth-child(2) {
+        transform: translate(0, calc((100% + var(--space-5)) * -1));
+      }
+
+      &:nth-child(3) {
+        transform: translate(calc(100% + var(--space-5)), 0);
+      }
+
+      &:nth-child(4) {
+        transform: translate(0, calc(100% + var(--space-5)));
+      }
+    }
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

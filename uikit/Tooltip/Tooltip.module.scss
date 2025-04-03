@@ -1,0 +1,38 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  @mixin regularSize {
+    @include mixins.body3;
+    padding: var(--space-5) var(--space-5);
+  }
+
+  @mixin smallSize {
+    @include mixins.body4;
+    padding: var(--space-3) var(--space-3);
+  }
+
+  .tooltipContainer {
+    z-index: var(--z-tooltip);
+  }
+
+  .tooltip {
+    background-color: var(--color-surface-tertiary);
+    color: var(--color-text-contrasted);
+    padding: var(--space-5);
+    border-radius: var(--radius-xs);
+
+    @include smallSize;
+
+    @include mixins.breakpoint-greater-than(md) {
+      @include regularSize;
+    }
+
+    &.regular {
+      @include regularSize;
+    }
+
+    &.small {
+      @include smallSize;
+    }
+  }
+}

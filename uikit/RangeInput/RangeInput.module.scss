@@ -1,0 +1,178 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  @mixin thumb($width, $height) {
+    box-sizing: border-box;
+    width: $width;
+    height: $height;
+    background: var(--color-surface-default);
+    border: 3px solid var(--color-border-brand);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .rangeInputContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &.large {
+      height: 3.75rem;
+
+      .rangeInput {
+        height: 0.25rem;
+
+        &::-webkit-slider-thumb {
+          @include thumb(1.25rem, 1.25rem);
+        }
+
+        &::-moz-range-thumb {
+          @include thumb(1.25rem, 1.25rem);
+        }
+      }
+
+      .valueWrapper {
+        min-width: 1.75rem;
+        padding: var(--space-1) var(--space-4);
+        border-radius: var(--radius-md);
+        transform: translateY(-2.1rem);
+
+        &::before {
+          width: 0.5rem;
+          height: 0.5rem;
+        }
+      }
+    }
+
+    &.regular {
+      height: 3.3rem;
+
+      .rangeInput {
+        height: 0.25rem;
+
+        &::-webkit-slider-thumb {
+          @include thumb(1.125rem, 1.125rem);
+        }
+
+        &::-moz-range-thumb {
+          @include thumb(1.125rem, 1.125rem);
+        }
+      }
+
+      .valueWrapper {
+        min-width: 1.5rem;
+        padding: var(--space-1) var(--space-3);
+        border-radius: var(--radius-sm);
+        transform: translateY(-1.8rem);
+
+        &::before {
+          width: 0.4rem;
+          height: 0.4rem;
+        }
+      }
+    }
+
+    &.small {
+      height: 2.85rem;
+
+      .rangeInput {
+        height: 0.1875rem;
+
+        &::-webkit-slider-thumb {
+          @include thumb(1rem, 1rem);
+        }
+
+        &::-moz-range-thumb {
+          @include thumb(1rem, 1rem);
+        }
+      }
+
+      .valueWrapper {
+        min-width: 1.25rem;
+        padding: var(--space-1) var(--space-2);
+        border-radius: var(--radius-xs);
+        transform: translateY(-1.6rem);
+
+        &::before {
+          width: 0.3rem;
+          height: 0.3rem;
+        }
+      }
+    }
+
+    &.disabled {
+      .rangeInput {
+        background: var(--color-surface-secondary);
+
+        &::-webkit-slider-thumb {
+          border-color: var(--color-border-tertiary);
+        }
+
+        &::-moz-range-thumb {
+          border-color: var(--color-border-tertiary);
+        }
+      }
+
+      .valueWrapper {
+        background-color: var(--color-surface-secondary);
+
+        &::before {
+          background-color: var(--color-border-tertiary);
+        }
+      }
+
+      .value {
+        color: var(--color-text-secondary);
+      }
+
+      .min,
+      .max {
+        color: var(--color-text-secondary);
+      }
+    }
+
+    .rangeInput {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: var(--color-surface-brand);
+      border-radius: 2px;
+      @include mixins.focus-outline;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+
+    .valueWrapper {
+      position: absolute;
+      background-color: var(--color-surface-brand);
+      line-height: 1;
+      text-align: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        background-color: var(--color-surface-brand);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    .value {
+      color: rgb(var(--color-white));
+    }
+
+    .min,
+    .max {
+      color: var(--color-text-default);
+    }
+
+    .max {
+      order: 1;
+    }
+  }
+}

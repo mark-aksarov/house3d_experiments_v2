@@ -1,0 +1,42 @@
+.aboutSheet {
+  width: 23.25rem;
+  height: calc(100dvh - var(--header-height) - var(--space-5) * 2);
+  top: calc(var(--header-height) / 2 + 50%);
+  left: unset;
+  right: var(--space-5);
+  transform: translateY(-50%);
+  z-index: calc(var(--z-modal) - 1);
+}
+
+.aboutSheetHeader {
+  padding: var(--space-15) var(--space-15) var(--space-9);
+}
+
+.aboutSheetBody {
+  padding: var(--space-9) var(--space-15) var(--space-15);
+  height: 100%;
+}
+
+.aboutSheetAppear,
+.aboutSheetEnter {
+  opacity: 0;
+  transform: translateY(-50%) translateX(calc(100% + var(--space-5)));
+}
+
+.aboutSheetAppearActive,
+.aboutSheetEnterActive {
+  opacity: 1;
+  transform: translateY(-50%);
+  transition: all 300ms;
+}
+
+.aboutSheetExit {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.aboutSheetExitActive {
+  opacity: 0;
+  transform: translateY(-50%) translateX(calc(100% + var(--space-5)));
+  transition: all 300ms;
+}

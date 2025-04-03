@@ -1,0 +1,115 @@
+@use "sass:map";
+@use './breakpoints' as *;
+
+@mixin breakpoint-less-than($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size) - 1) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Breakpoint '#{$size}' is not defined in the breakpoints map.";
+  }
+}
+
+@mixin breakpoint-greater-than($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Breakpoint '#{$size}' is not defined in the breakpoints map.";
+  }
+}
+
+@mixin display1 {
+  font-size: var(--typography-display-1-font-size);
+  line-height: var(--typography-display-1-line-height);
+  font-weight: var(--typography-display-1-font-weight);
+}
+
+@mixin display2 {
+  font-size: var(--typography-display-2-font-size);
+  line-height: var(--typography-display-2-line-height);
+  font-weight: var(--typography-display-2-font-weight);
+}
+
+@mixin header1 {
+  font-size: var(--typography-header-1-font-size);
+  line-height: var(--typography-header-1-line-height);
+  font-weight: var(--typography-header-1-font-weight);
+}
+
+@mixin header2 {
+  font-size: var(--typography-header-2-font-size);
+  line-height: var(--typography-header-2-line-height);
+  font-weight: var(--typography-header-2-font-weight);
+}
+
+@mixin header3 {
+  font-size: var(--typography-header-3-font-size);
+  line-height: var(--typography-header-3-line-height);
+  font-weight: var(--typography-header-3-font-weight);
+}
+
+@mixin header4 {
+  font-size: var(--typography-header-4-font-size);
+  line-height: var(--typography-header-4-line-height);
+  font-weight: var(--typography-header-4-font-weight);
+}
+
+@mixin header5 {
+  font-size: var(--typography-header-5-font-size);
+  line-height: var(--typography-header-5-line-height);
+  font-weight: var(--typography-header-5-font-weight);
+}
+
+@mixin header6 {
+  font-size: var(--typography-header-6-font-size);
+  line-height: var(--typography-header-6-line-height);
+  font-weight: var(--typography-header-6-font-weight);
+}
+
+@mixin body1 {
+  font-size: var(--typography-body-1-font-size);
+  line-height: var(--typography-body-1-line-height);
+  font-weight: var(--typography-body-1-font-weight);
+}
+
+@mixin body2 {
+  font-size: var(--typography-body-2-font-size);
+  line-height: var(--typography-body-2-line-height);
+  font-weight: var(--typography-body-2-font-weight);
+}
+
+@mixin body3 {
+  font-size: var(--typography-body-3-font-size);
+  line-height: var(--typography-body-3-line-height);
+  font-weight: var(--typography-body-3-font-weight);
+}
+
+@mixin body4 {
+  font-size: var(--typography-body-4-font-size);
+  line-height: var(--typography-body-4-line-height);
+  font-weight: var(--typography-body-4-font-weight);
+}
+
+@mixin code {
+  font-size: var(--typography-code-font-size);
+  line-height: var(--typography-code-line-height);
+  font-weight: var(--typography-code-font-weight);
+}
+
+@mixin focus-outline {
+  &:focus-visible {
+    outline-color: var(--color-border-secondary);
+    outline-style: auto;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 2px 4px 15px var(--color-shadow);
+}

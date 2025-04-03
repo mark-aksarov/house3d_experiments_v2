@@ -1,0 +1,19 @@
+@use 'uikit/styles/mixins';
+
+.bottomToolBar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid var(--color-border-tertiary);
+  border-bottom: none;
+  background-color: var(--color-surface-default);
+  border-top-left-radius: var(--space-5);
+  border-top-right-radius: var(--space-5);
+  z-index: var(--z-tool-bar);
+  @include mixins.shadow;
+
+  @include mixins.breakpoint-greater-than(md) {
+    display: none;
+  }
+}

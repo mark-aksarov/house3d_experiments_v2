@@ -1,0 +1,48 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .bottomSheet {
+    left: 0;
+    top: initial;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    transform: initial;
+    border-top-left-radius: var(--space-5);
+    border-top-right-radius: var(--space-5);
+  }
+
+  .prevSheetButton {
+    &.small {
+      margin-left: calc(var(--space-2) * -1);
+    }
+
+    &.regular {
+      margin-left: calc(var(--space-3) * -1);
+    }
+
+    &.large {
+      margin-left: calc(var(--space-4) * -1);
+    }
+  }
+
+  .bottomSheetAppear,
+  .bottomSheetEnter {
+    transform: translateY(100%);
+  }
+
+  .bottomSheetAppearActive,
+  .bottomSheetEnterActive {
+    transform: translateY(0);
+    transition: transform 300ms;
+  }
+
+  .bottomSheetExit {
+    transform: translateY(0);
+  }
+
+  .bottomSheetExitActive {
+    transform: translateY(100%);
+    transition: transform 300ms;
+  }
+}

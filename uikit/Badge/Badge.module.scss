@@ -1,0 +1,23 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text-default);
+    box-shadow: var(--color-shadow) 0px 2px 2px 0px;
+
+    &.regular {
+      padding: var(--space-1) var(--space-3);
+      @include mixins.body3;
+    }
+
+    &.small {
+      padding: var(--space-1) var(--space-2);
+      @include mixins.body4;
+    }
+  }
+}

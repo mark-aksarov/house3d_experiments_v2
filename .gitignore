@@ -1,0 +1,12 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# next.js
+.next/
+
+.VSCodeCounter
+
+/coverage

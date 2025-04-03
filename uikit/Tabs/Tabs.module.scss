@@ -1,0 +1,67 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .tabs {
+    overflow: auto;
+  }
+
+  .tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    @include mixins.focus-outline;
+
+    &:hover,
+    &:global(.active) {
+
+      &,
+      .tabLabel {
+        color: var(--color-text-brand);
+      }
+    }
+
+    &:disabled {
+
+      &,
+      .tabLabel {
+        color: var(--color-text-secondary);
+      }
+    }
+
+    &:global(.active)::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-surface-brand);
+    }
+  }
+
+  .tabLabel {
+    color: var(--color-text-default);
+  }
+
+  .tabPanelContainer {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    transition: height 150ms;
+  }
+
+  .tabPanel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .tabPanelHidden {
+    opacity: 0;
+    visibility: collapse;
+  }
+}

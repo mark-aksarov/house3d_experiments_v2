@@ -1,0 +1,90 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .imageButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .imageWrapper {
+    display: block;
+  }
+
+  .imageButtonLabel {
+    text-align: center;
+    display: inline-block;
+    color: var(--color-text-default);
+    text-transform: capitalize;
+  }
+
+  .imageButton {
+    padding: var(--space-1);
+    border: 1px solid transparent;
+    @include mixins.focus-outline;
+
+    &+.imageButtonLabel {
+      @include mixins.body3;
+    }
+
+    &:hover>.imageWrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(var(--color-black) / 15%);
+      z-index: 1;
+    }
+
+    &:active,
+    &:global(.active) {
+      border-color: var(--color-border-brand);
+
+      &+.imageButtonLabel {
+        color: var(--color-text-brand);
+      }
+    }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.6;
+
+      &+.imageButtonLabel {
+        color: var(--color-text-secondary);
+      }
+    }
+
+    &>.imageWrapper {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-border-default);
+    }
+
+    &.large {
+      border-radius: var(--radius-lg);
+
+      &>.imageWrapper {
+        border-radius: calc(var(--radius-lg) - var(--space-1));
+        width: 7.5rem;
+        height: 7.5rem;
+      }
+    }
+
+    &.small {
+      border-radius: 50%;
+
+      &>.imageWrapper {
+        border-radius: 50%;
+        width: 3.875rem;
+        height: 3.875rem;
+      }
+
+      &+.imageButtonLabel {
+        max-width: 3.875rem;
+      }
+    }
+  }
+}

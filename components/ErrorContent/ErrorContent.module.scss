@@ -1,0 +1,41 @@
+@use 'uikit/styles/mixins';
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  background-color: var(--color-surface-default);
+  padding: var(--space-7);
+
+  @include mixins.breakpoint-greater-than(md) {
+    padding: var(--space-15);
+  }
+}
+
+.title {
+  color: var(--color-text-danger);
+  @include mixins.display2;
+
+  @include mixins.breakpoint-greater-than(md) {
+    @include mixins.display1;
+  }
+}
+
+.subTitle {
+  @include mixins.header4;
+
+  @include mixins.breakpoint-greater-than(md) {
+    @include mixins.header3;
+  }
+}
+
+.message {
+  @include mixins.body3;
+  text-align: center;
+
+  @include mixins.breakpoint-greater-than(md) {
+    @include mixins.body2;
+  }
+}

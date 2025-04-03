@@ -1,0 +1,37 @@
+{
+  "name": "threejs-react-house3d",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/user-event": "14.5.2",
+    "@types/jest": "29.5.14",
+    "@types/three": "0.169.0",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "ts-node": "10.9.2"
+  },
+  "dependencies": {
+    "@floating-ui/react": "0.27.2",
+    "classnames": "2.5.1",
+    "css-mediaquery": "^0.1.2",
+    "immer": "10.1.1",
+    "lucide-react": "0.479.0",
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-transition-group": "4.4.5",
+    "sass": "1.83.0",
+    "three": "0.175.0",
+    "use-immer": "0.11.0"
+  }
+}

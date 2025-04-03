@@ -1,0 +1,63 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+
+    &.disabled {
+      .checkbox {
+        &:checked+.slider {
+          background-color: var(--color-surface-secondary);
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:focus-visible+.slider {
+      outline-style: auto;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-surface-secondary);
+    transition: background-color 0.4s;
+    border-radius: 13px;
+    outline-color: var(--color-border-secondary);
+    outline-style: none;
+  }
+
+  .slider:before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    left: 5px;
+    bottom: 5px;
+    background-color: var(--color-surface-default);
+    transition: left 0.4s;
+  }
+
+  .checkbox:checked+.slider {
+    background-color: var(--color-surface-brand);
+  }
+
+  .checkbox:checked+.slider:before {
+    left: 25px;
+    background-color: rgb(var(--color-white));
+  }
+}

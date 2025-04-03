@@ -1,0 +1,26 @@
+@layer uikit {
+  .iconButton {
+
+    &.large,
+    &.regular {
+      border-radius: var(--radius-md);
+    }
+
+    &.large {
+      padding: var(--space-4);
+    }
+
+    &.regular {
+      padding: var(--space-3);
+    }
+
+    &.small {
+      padding: var(--space-2);
+      border-radius: var(--radius-sm);
+    }
+
+    &.rounded {
+      border-radius: 50%;
+    }
+  }
+}

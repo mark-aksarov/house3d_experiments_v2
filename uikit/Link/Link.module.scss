@@ -1,0 +1,30 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .link {
+    @include mixins.focus-outline;
+
+    &.regular {
+      @include mixins.header5;
+    }
+
+    &.small {
+      @include mixins.header6;
+    }
+
+    color: var(--color-text-link);
+
+    &:hover,
+    &:visited {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: var(--color-text-link-hover);
+    }
+
+    &:visited {
+      color: var(--color-text-link-visited);
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .toastContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: var(--z-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5) var(--space-5);
+  }
+
+  .toast {
+    position: relative;
+    border-radius: var(--radius-lg);
+    @include mixins.shadow;
+
+    &.default {
+      border: 1px solid var(--color-border-tertiary);
+      background-color: var(--color-surface-default);
+    }
+
+    &.success {
+      background-color: var(--color-surface-success);
+
+      .toastTitle,
+      .toastText {
+        color: rgb(var(--color-white));
+      }
+    }
+
+    &.danger {
+      background-color: var(--color-surface-danger);
+
+      .toastTitle,
+      .toastText {
+        color: rgb(var(--color-white));
+      }
+    }
+
+    &.regular {
+      width: 15.625rem;
+
+      .toastHeader {
+        padding: var(--space-3) var(--space-5);
+      }
+
+      .toastBody {
+        padding: var(--space-3) var(--space-5) var(--space-5);
+      }
+    }
+
+    &.small {
+      width: 12.5rem;
+
+      .toastHeader {
+        padding: var(--space-2) var(--space-3);
+      }
+
+      .toastBody {
+        padding: var(--space-2) var(--space-3) var(--space-3);
+      }
+    }
+  }
+
+  .toastHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toastCloseButton {
+    &.small {
+      margin-right: calc(var(--space-2) * -1);
+    }
+
+    &.regular {
+      margin-right: calc(var(--space-3) * -1);
+    }
+  }
+
+  .toastAppear,
+  .toastEnter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .toastAppearActive,
+  .toastEnterActive {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform ease-out 300ms, opacity cubic-bezier(.02, .98, .02, .99) 300ms;
+  }
+
+  .toastExit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .toastExitActive {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform ease-out 300ms, opacity cubic-bezier(.98, 0, .77, .99) 300ms;
+  }
+}
