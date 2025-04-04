@@ -11,8 +11,8 @@ import ListItemText from "@/uikit/ListGroup/ListItemText";
 import ListItemIcon from "@/uikit/ListGroup/ListItemIcon";
 import ToggleThemeRadioGroup from "../ToggleThemeRadioGroup";
 import TabPanelContainer from "@/uikit/Tabs/TabPanelContainer";
+import { ArrowRightIcon, CircleDotIcon, SunMediumIcon } from "lucide-react";
 import { useAppBottomToolBar } from "../AppBottomToolBar/AppBottomToolBarContext";
-import { ArrowRightIcon, BoxIcon, CircleDotIcon, SunMediumIcon } from "lucide-react";
 import { useCloseBottomSheet, useOpenedBottomSheetName, useOpenBottomSheet } from "@/context/BottomSheetsContext";
 
 export default function AppearanceBottomSheet() {
@@ -29,26 +29,6 @@ export default function AppearanceBottomSheet() {
 
   function openMarkerSizeBottomSheet() {
     openSheet("markerSize");
-  }
-
-  function openOutlineColorBottomSheet() {
-    openSheet("outlineColor");
-  }
-
-  function openOutlineEdgeStrengthBottomSheet() {
-    openSheet("outlineEdgeStrength");
-  }
-
-  function openOutlineEdgeGlowBottomSheet() {
-    openSheet("outlineEdgeGlow");
-  }
-
-  function openOutlineEdgeThicknessBottomSheet() {
-    openSheet("outlineEdgeThickness");
-  }
-
-  function openOutlinePulsePeriodBottomSheet() {
-    openSheet("outlinePulsePeriod");
   }
 
   return (
@@ -72,12 +52,6 @@ export default function AppearanceBottomSheet() {
               icon={<CircleDotIcon />}
               label="Markers"
               aria-controls="markersPanel"
-            />
-            <Tab
-              id="outlineTab"
-              icon={<BoxIcon />}
-              label="Outline"
-              aria-controls="outlinePanel"
             />
             <Tab
               id="themeTab"
@@ -108,59 +82,6 @@ export default function AppearanceBottomSheet() {
               <ListItem onClick={openMarkerSizeBottomSheet}>
                 <ListItemText>
                   Marker size
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
-            </ListGroup>
-          </TabPanel>
-
-          <TabPanel
-            id="outlinePanel"
-            tabId="outlineTab"
-            activeTabId={appearanceTab}
-          >
-            <ListGroup>
-              <ListItem onClick={openOutlineColorBottomSheet}>
-                <ListItemText>
-                  Color
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
-
-              <ListItem onClick={openOutlineEdgeStrengthBottomSheet}>
-                <ListItemText>
-                  Edge strength
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
-
-              <ListItem onClick={openOutlineEdgeGlowBottomSheet}>
-                <ListItemText>
-                  Edge glow
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
-
-              <ListItem onClick={openOutlineEdgeThicknessBottomSheet}>
-                <ListItemText>
-                  Edge thickness
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
-
-              <ListItem onClick={openOutlinePulsePeriodBottomSheet}>
-                <ListItemText>
-                  Pulse period
                 </ListItemText>
                 <ListItemIcon>
                   <ArrowRightIcon className={styles.listItemIcon} />

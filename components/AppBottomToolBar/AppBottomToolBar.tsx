@@ -1,9 +1,9 @@
 import Stack from "@/uikit/Stack";
 import { Tab, Tabs } from "@/uikit/Tabs";
 import styles from './AppBottomToolBar.module.scss';
+import { AppWindowMacIcon, SettingsIcon } from "lucide-react";
 import { useAppBottomToolBar } from "./AppBottomToolBarContext";
 import { useOpenBottomSheet } from "@/context/BottomSheetsContext";
-import { AppWindowMacIcon, MapPinIcon, SettingsIcon } from "lucide-react";
 
 export default function AppBottomToolBar() {
   const { toolBarTab, setToolBarTab } = useAppBottomToolBar();
@@ -31,13 +31,6 @@ export default function AppBottomToolBar() {
             onClick={() => handleTabChange("appearance")}
             icon={<AppWindowMacIcon />}
             label="Appearance"
-          />
-          <Tab
-            id="viewpoint"
-            size="small"
-            onClick={() => handleTabChange("viewpoint")}
-            icon={<MapPinIcon />}
-            label="Viewpoint"
           />
         </Stack>
       </Tabs>

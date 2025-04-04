@@ -13,12 +13,10 @@ import SettingsSideSheet from '../SettingsSideSheet';
 import { HouseContext } from '@/context/HouseContext';
 import useResizeWindow from '@/hooks/useResizeWindow';
 import useWelcomeToast from '@/hooks/useWelcomeToast';
-import ViewpointSideSheet from '../ViewpointSideSheet';
 import { useTextures } from '@/context/TexturesContext';
 import AppearanceSideSheet from '../AppearanceSideSheet';
 import SettingsBottomSheet from '../SettingsBottomSheet';
 import { useGetCanvasRef } from '@/context/CanvasContext';
-import ViewpointBottomSheet from '../ViewpointBottomSheet';
 import CameraFovBottomSheet from '../CameraFovBottomSheet';
 import useUpdateCameraFov from '@/hooks/useUpdateCameraFov';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -28,15 +26,10 @@ import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import { ViewpointContext } from '@/context/ViewpointContext';
 import { ModelName, useModels } from '@/context/ModelsContext';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
-import OutlineColorBottomSheet from '../OutlineColorBottomSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
 import { OrbitControlsProvider } from '@/context/OrbitControlsContext';
-import OutlineEdgeGlowBottomSheet from '../OutlineEdgeGlowBottomSheet';
-import OutlinePulsePeriodBottomSheet from '../OutlinePulsePeriodBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
-import OutlineEdgeStrengthBottomSheet from '../OutlineEdgeStrengthBottomSheet';
 import useUpdateToneMappingExposure from '@/hooks/useUpdateToneMappingExposure';
-import OutlineEdgeThicknessBottomSheet from '../OutlineEdgeThicknessBottomSheet';
 
 export default function App() {
   const [viewpoint, setViewpoint] = useState<Viewpoint>("Viewpoint1");
@@ -96,15 +89,7 @@ export default function App() {
           <CameraFovBottomSheet />
 
           <AppearanceBottomSheet />
-          <OutlineColorBottomSheet />
-          <OutlineEdgeStrengthBottomSheet />
-          <OutlineEdgeGlowBottomSheet />
-          <OutlineEdgeThicknessBottomSheet />
-          <OutlinePulsePeriodBottomSheet />
           <MarkerSizeBottomSheet />
-
-          <ViewpointSideSheet />
-          <ViewpointBottomSheet />
 
           <SettingsSideSheet />
           <AppearanceSideSheet />

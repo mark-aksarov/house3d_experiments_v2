@@ -4,15 +4,11 @@ import Typography from "@/uikit/Typography";
 import { SheetHeader } from "@/uikit/Sheet";
 import ShowMarkersSwitch from "../ShowMarkersSwitch";
 import { useAppSideToolBar } from "../AppSideToolBar";
+import styles from './AppearanceSideSheet.module.scss';
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import MarkerSizeRadioGroup from "../MarkerSizeRadioGroup";
 import ToggleThemeRadioGroup from "../ToggleThemeRadioGroup";
 import BaseSideSheet, { BaseSideSheetBody } from "../BaseSideSheet";
-import OutlineEdgeGlowRangeInput from "../OutlineEdgeGlowRangeInput";
-import OutlinePulsePeriodRangeInput from "../OutlinePulsePeriodRangeInput";
-import OutlineColorToggleButtonGroup from "../OutlineColorToggleButtonGroup";
-import OutlineEdgeStrengthRangeInput from "../OutlineEdgeStrengthRangeInput";
-import OutlineEdgeThicknessRangeInput from "../OutlineEdgeThicknessRangeInput";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
 
 export default function AppearanceSideSheet() {
@@ -38,7 +34,7 @@ export default function AppearanceSideSheet() {
 
       <Divider />
 
-      <BaseSideSheetBody>
+      <BaseSideSheetBody className={styles.sideSheetBody}>
         <ListGroup>
           <ListItem>
             <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
@@ -61,51 +57,6 @@ export default function AppearanceSideSheet() {
                 Marker size
               </Typography>
               <MarkerSizeRadioGroup />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch">
-              <Typography variant="header5">
-                Outline color
-              </Typography>
-              <OutlineColorToggleButtonGroup />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
-              <Typography variant="header5">
-                Outline edge strength
-              </Typography>
-              <OutlineEdgeStrengthRangeInput />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
-              <Typography variant="header5">
-                Outline edge glow
-              </Typography>
-              <OutlineEdgeGlowRangeInput />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
-              <Typography variant="header5">
-                Outline edge thickness
-              </Typography>
-              <OutlineEdgeThicknessRangeInput />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
-              <Typography variant="header5">
-                Outline pulse period
-              </Typography>
-              <OutlinePulsePeriodRangeInput />
             </Stack>
           </ListItem>
 

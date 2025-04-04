@@ -3,9 +3,9 @@ import Tooltip from '@/uikit/Tooltip';
 import styles from './AppSideToolBar.module.scss';
 import AppSideToolBarButton from "./AppSideToolBarButton";
 import { useAppSideToolBar } from './AppSideToolBarContext';
+import { AppWindowMacIcon, SettingsIcon } from 'lucide-react';
 import { useOpenSideSheet } from '@/context/SideSheetsContext';
 import ToggleButtonGroup, { ToggleButton } from '@/uikit/ToggleButton';
-import { AppWindowMacIcon, MapPinIcon, SettingsIcon } from 'lucide-react';
 
 export default function AppSideToolBar() {
   const { selectedValue, setSelectedValue } = useAppSideToolBar();
@@ -36,15 +36,6 @@ export default function AppSideToolBar() {
               icon={<AppWindowMacIcon />}
               value="appearance"
               onClick={() => handleValueChange("appearance")}
-            />
-          </Tooltip>
-          <Tooltip title="Viewpoint" placement='right' zIndex="calc(var(--z-sheet) + 1)">
-            <ToggleButton
-              aria-label='Viewpoint'
-              as={AppSideToolBarButton}
-              icon={<MapPinIcon />}
-              value="viewpoint"
-              onClick={() => handleValueChange("viewpoint")}
             />
           </Tooltip>
         </Stack>
