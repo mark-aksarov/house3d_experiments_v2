@@ -4,9 +4,9 @@ import Fence from "./Fence";
 import Doors from "./Doors";
 import Windows from "./Windows";
 import Corners from "./Corners";
+import useRoad from "@/hooks/useRoad";
 import Foundation from "./Foundation";
 import useGates from "@/hooks/useGates";
-import useGrass from "@/hooks/useGrass";
 import usePaving from "@/hooks/usePaving";
 import useGround from "@/hooks/useGround";
 import HouseSideSheet from "./HouseSideSheet";
@@ -18,6 +18,7 @@ import useAmbientLight from "@/hooks/useAmbientLight";
 import { WallsProvider } from "@/context/WallsContext";
 import { DoorsProvider } from "@/context/DoorsContext";
 import { FenceProvider } from "@/context/FenceContext";
+import { useTextures } from "@/context/TexturesContext";
 import { useHouseContext } from "@/context/HouseContext";
 import { WindowsProvider } from "@/context/WindowsContext";
 import { CornersProvider } from "@/context/CornersContext";
@@ -32,19 +33,20 @@ export default function Scene({
 }) {
   const { getScene, getCamera, getRenderer } = useThree();
   const { houseIsInScene } = useHouseContext();
+  const { status: texturesLoadStatus } = useTextures();
 
   useAmbientLight();
   useSunLight();
   usePointLight();
   useGround();
-  useGrass();
   usePaving();
+  useRoad();
   useGates();
   useUpdateSceneBackground();
 
-  //this hook fires after all hooks which update materials above and hooks in children component
+  //this hook fires after all hooks which update materials above and hooks in children components
   useEffect(() => {
-    if (houseIsInScene) {
+    if (houseIsInScene && texturesLoadStatus === "success") {
       setIsFirstMaterialUpdatingComplete(true);
 
       //redraw scene immediately
@@ -53,7 +55,7 @@ export default function Scene({
       const renderer = getRenderer();
       renderer.render(scene, camera);
     }
-  }, [setIsFirstMaterialUpdatingComplete, houseIsInScene, getScene, getCamera, getRenderer])
+  }, [setIsFirstMaterialUpdatingComplete, houseIsInScene, texturesLoadStatus, getScene, getCamera, getRenderer])
 
   return (
     <>

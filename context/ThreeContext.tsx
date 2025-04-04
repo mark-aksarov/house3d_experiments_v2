@@ -1,5 +1,5 @@
 import { useGetCanvasRef } from './CanvasContext';
-import React, { createContext, ReactNode, useCallback, useContext, useRef, useState } from 'react';
+import React, { createContext, ReactNode, useCallback, useContext, useRef } from 'react';
 import { Color, PCFSoftShadowMap, PerspectiveCamera, ReinhardToneMapping, Scene, WebGLRenderer } from 'three';
 
 interface ThreeContextType {

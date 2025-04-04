@@ -16,6 +16,7 @@ export default function useRoof() {
       const scene = getScene();
 
       const roofCover = scene.getObjectByName("RoofCover") as Mesh;
+
       roofCover.material = getRoofCoverMaterial();
 
       const roofBottom = scene.getObjectByName("RoofBottom") as Mesh;

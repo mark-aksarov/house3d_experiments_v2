@@ -12,9 +12,9 @@ const modelLoadData: { modelName: ModelName; url: string }[] = [
 ];
 
 // Union type for load state
-type Status = 'pending' | 'success' | 'error';
+export type Status = 'pending' | 'success' | 'error';
 
-interface State {
+export interface State {
   models: ModelCollection | null;
   status: Status;
 }
@@ -43,7 +43,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 // ModelsContext creation
-const ModelsContext = createContext<State | null>(null);
+export const ModelsContext = createContext<State | null>(null);
 
 // ModelsContextProvider component
 export function ModelsProvider({ children }: { children: ReactNode }) {

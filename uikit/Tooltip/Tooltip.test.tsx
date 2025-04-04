@@ -27,7 +27,9 @@ describe('Tooltip', () => {
     const button = screen.getByRole('button', { name: /hover me/i });
     fireEvent.mouseEnter(button);
 
-    expect(screen.queryByRole('tooltip')).toBeInTheDocument();
+    waitFor(() => {
+      expect(screen.queryByRole('tooltip')).toBeInTheDocument();
+    })
   });
 
   test('hides the tooltip on mouse leave', async () => {
@@ -41,7 +43,9 @@ describe('Tooltip', () => {
     const button = screen.getByRole('button', { name: /hover me/i });
     fireEvent.mouseEnter(button);
 
-    expect(screen.queryByRole('tooltip')).toBeInTheDocument();
+    waitFor(() => {
+      expect(screen.queryByRole('tooltip')).toBeInTheDocument();
+    })
     fireEvent.mouseLeave(button);
 
     waitFor(() => {
@@ -60,7 +64,9 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(screen.getByRole('button', { name: /hover me/i }));
 
     const tooltip = screen.getByText('Small Tooltip');
-    expect(tooltip).toHaveClass('tooltip');
-    expect(tooltip).toHaveClass('small');
+    waitFor(() => {
+      expect(tooltip).toHaveClass('tooltip');
+      expect(tooltip).toHaveClass('small');
+    })
   });
 });

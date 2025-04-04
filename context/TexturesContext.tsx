@@ -19,9 +19,9 @@ export type TextureName =
   "RoofingTiles013A" |
   "RoofingTiles014A" |
   "RoofingTiles015A" |
-  "Ground037" |
   "PavingStones108" |
-  "Metal046B";
+  "Metal046B" |
+  "Asphalt031";
 
 export type TextureMapType = "color" | "roughness" | "metalness" | "ao" | "normal";
 
@@ -161,15 +161,6 @@ const textureLoadData: Array<{
       ]
     },
     {
-      textureName: "Ground037",
-      data: [
-        { mapType: "color", url: "textures/Ground037/Ground037_1K-JPG_Color.jpg" },
-        { mapType: "roughness", url: "textures/Ground037/Ground037_1K-JPG_Roughness.jpg" },
-        { mapType: "ao", url: "textures/Ground037/Ground037_1K-JPG_AmbientOcclusion.jpg" },
-        { mapType: "normal", url: "textures/Ground037/Ground037_1K-JPG_NormalGL.jpg" },
-      ]
-    },
-    {
       textureName: "PavingStones108",
       data: [
         { mapType: "color", url: "textures/PavingStones108/PavingStones108_1K-JPG_Color.jpg" },
@@ -187,13 +178,22 @@ const textureLoadData: Array<{
         { mapType: "normal", url: "textures/Metal046B/Metal046B_1K-JPG_NormalGL.jpg" },
       ]
     },
+    {
+      textureName: "Asphalt031",
+      data: [
+        { mapType: "color", url: "textures/Asphalt031/Asphalt031_1K-JPG_Color.jpg" },
+        { mapType: "roughness", url: "textures/Asphalt031/Asphalt031_1K-JPG_Roughness.jpg" },
+        { mapType: "ao", url: "textures/Asphalt031/Asphalt031_1K-JPG_AmbientOcclusion.jpg" },
+        { mapType: "normal", url: "textures/Asphalt031/Asphalt031_1K-JPG_NormalGL.jpg" },
+      ]
+    },
   ];
 
 // Union type for load state
-type Status = 'pending' | 'success' | 'error';
+export type Status = 'pending' | 'success' | 'error';
 
 // State and actions
-interface State {
+export interface State {
   textures: TextureCollection | null;
   status: Status;
 }
@@ -273,7 +273,7 @@ export function TexturesProvider({ children }: { children: ReactNode }) {
 export const useTextures = () => {
   const context = useContext(TextureContext);
   if (!context) {
-    throw new Error("useTextureContext must be used within a TextureProvider");
+    throw new Error("useTexture must be used within a TextureProvider");
   }
   return context;
 };

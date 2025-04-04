@@ -4,9 +4,9 @@ import materialDefaults from "@/utils/materialDefaults";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialTexturesRepeat from "./useUpdateMaterialTexturesRepeat";
 
-export default function useGetGrassMaterial() {
+export default function useGetRoadMaterial() {
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
-  const textureName = "Ground037";
+  const textureName = "Asphalt031";
 
   const getMaterial = useCallback(() => {
     if (materialRef.current !== null) {

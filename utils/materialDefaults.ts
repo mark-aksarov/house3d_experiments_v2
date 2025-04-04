@@ -18,7 +18,7 @@ const materialDefaults: Record<"repeat" | "normalScale" | "roughness", Partial<R
     Bricks092: new Vector2(6.75, 6.75),
     Asphalt029B: new Vector2(0.75, 0.75),
     Bricks075A: new Vector2(0.5, 0.75),
-    Ground037: new Vector2(7, 7),
+    Asphalt031: new Vector2(1, 1),
     PavingStones108: new Vector2(5, 5),
     Metal046B: new Vector2(2, 2)
   },
@@ -38,7 +38,7 @@ const materialDefaults: Record<"repeat" | "normalScale" | "roughness", Partial<R
     RoofingTiles013A: new Vector2(7, 7),
     RoofingTiles014A: new Vector2(7, 7),
     RoofingTiles015A: new Vector2(7, 7),
-    Ground037: new Vector2(0.5, 0.5),
+    Asphalt031: new Vector2(0.5, 0.5),
     PavingStones108: new Vector2(2, 2),
     Metal046B: new Vector2(2, 2)
   },
@@ -58,7 +58,7 @@ const materialDefaults: Record<"repeat" | "normalScale" | "roughness", Partial<R
     Asphalt030: 3,
     Asphalt029A: 3,
     Asphalt029B: 3,
-    Ground037: 3,
+    Asphalt031: 3,
     PavingStones108: 3,
     Metal046B: 1
   },

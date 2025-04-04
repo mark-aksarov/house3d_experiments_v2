@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { render } from "@testing-library/react";
-import { LinearToneMapping, Vector3 } from 'three';
 import { ThreeContext } from "context/ThreeContext";
 import { ThemeProvider } from "context/ThemeContext";
 import { CanvasContext } from "context/CanvasContext";
 import { ToastsProvider } from "context/ToastsContext";
+import { ModelsProvider } from '@/context/ModelsContext';
+import { LinearToneMapping, Scene, Vector3 } from 'three';
+import { TexturesProvider } from '@/context/TexturesContext';
 import { SideSheetsProvider } from "context/SideSheetsContext";
 import { BottomSheetsProvider } from "context/BottomSheetsContext";
 import { AppSideToolBarProvider } from "components/AppSideToolBar";
@@ -26,6 +28,8 @@ export const mockedRenderer = {
   setSize: jest.fn(),
 };
 
+export const scene = new Scene();
+
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -33,25 +37,29 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
     <ThemeProvider>
       <ToastsProvider>
         <NarrowViewportMessage />
-        <AppSideToolBarProvider>
-          <AppBottomToolBarProvider>
-            <SideSheetsProvider>
-              <BottomSheetsProvider>
-                <CanvasContext.Provider value={canvasRef}>
-                  <ThreeContext.Provider value={{
-                    render: mockedRenderer.render,
-                    getCamera: () => mockedCamera,
-                    getScene: jest.fn(),
-                    getRenderer: () => mockedRenderer,
-                    isFirstRenderComplete: true
-                  }}>
-                    {children}
-                  </ThreeContext.Provider>
-                </CanvasContext.Provider>
-              </BottomSheetsProvider>
-            </SideSheetsProvider>
-          </AppBottomToolBarProvider>
-        </AppSideToolBarProvider>
+        <ModelsProvider>
+          <TexturesProvider>
+            <AppSideToolBarProvider>
+              <AppBottomToolBarProvider>
+                <SideSheetsProvider>
+                  <BottomSheetsProvider>
+                    <CanvasContext.Provider value={canvasRef}>
+                      <ThreeContext.Provider value={{
+                        render: mockedRenderer.render,
+                        getCamera: () => mockedCamera,
+                        getScene: () => scene,
+                        getRenderer: () => mockedRenderer,
+                        isFirstRenderComplete: true
+                      }}>
+                        {children}
+                      </ThreeContext.Provider>
+                    </CanvasContext.Provider>
+                  </BottomSheetsProvider>
+                </SideSheetsProvider>
+              </AppBottomToolBarProvider>
+            </AppSideToolBarProvider>
+          </TexturesProvider>
+        </ModelsProvider>
       </ToastsProvider>
     </ThemeProvider>
   );
