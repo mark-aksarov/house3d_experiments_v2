@@ -6,12 +6,15 @@ import { CanvasContext } from "context/CanvasContext";
 import { ToastsProvider } from "context/ToastsContext";
 import { ModelsProvider } from '@/context/ModelsContext';
 import { LinearToneMapping, Scene, Vector3 } from 'three';
+import { SettingsProvider } from '@/context/SettingsContext';
 import { TexturesProvider } from '@/context/TexturesContext';
+import { MaterialsProvider } from '@/context/MaterialsContext';
 import { SideSheetsProvider } from "context/SideSheetsContext";
 import { BottomSheetsProvider } from "context/BottomSheetsContext";
 import { AppSideToolBarProvider } from "components/AppSideToolBar";
 import NarrowViewportMessage from "components/NarrowViewportMessage";
 import { AppBottomToolBarProvider } from "components/AppBottomToolBar";
+import { OrbitControlsProvider } from '@/context/OrbitControlsContext';
 
 export const mockedCamera = {
   fov: 60,
@@ -51,7 +54,13 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
                         getRenderer: () => mockedRenderer,
                         isFirstRenderComplete: true
                       }}>
-                        {children}
+                        <OrbitControlsProvider>
+                          <SettingsProvider>
+                            <MaterialsProvider>
+                              {children}
+                            </MaterialsProvider>
+                          </SettingsProvider>
+                        </OrbitControlsProvider>
                       </ThreeContext.Provider>
                     </CanvasContext.Provider>
                   </BottomSheetsProvider>

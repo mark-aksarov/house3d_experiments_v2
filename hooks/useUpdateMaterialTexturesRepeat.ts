@@ -12,11 +12,11 @@ export default function useUpdateMaterialTexturesRepeat({
   repeat,
   getMaterial
 }: UseUpdateMaterialTexturesRepeatProps) {
-  const { textures, status } = useTextures();
+  const { textures } = useTextures();
   const { render } = useThree();
 
   useEffect(() => {
-    if (textures && status === "success") {
+    if (textures) {
       const material = getMaterial();
 
       if (material.map) {
@@ -37,5 +37,5 @@ export default function useUpdateMaterialTexturesRepeat({
 
       render();
     }
-  }, [getMaterial, textures, status, repeat, render])
+  }, [getMaterial, textures, repeat, render])
 }

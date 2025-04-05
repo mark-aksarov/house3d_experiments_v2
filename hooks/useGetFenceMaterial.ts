@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
-import { useFenceContext } from "@/context/FenceContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetFenceMaterial() {
-  const { color } = useFenceContext();
+  const { fence: { color } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

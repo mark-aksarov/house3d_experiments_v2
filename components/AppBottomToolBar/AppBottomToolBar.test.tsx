@@ -20,8 +20,7 @@ describe('AppBottomToolBar', () => {
 
   it.each([
     { name: 'settings', testId: 'settings-bottom-sheet' },
-    { name: 'appearance', testId: 'appearance-bottom-sheet' },
-    { name: 'viewpoint', testId: 'viewpoint-bottom-sheet' }
+    { name: 'appearance', testId: 'appearance-bottom-sheet' }
   ])(
     "should open $name bottom sheet when $name tab is clicked",
     ({ name, testId }) => {

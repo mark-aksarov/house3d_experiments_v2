@@ -19,7 +19,6 @@ describe('AppSideToolBar', () => {
   it.each([
     { name: 'settings', testId: 'settings-side-sheet' },
     { name: 'appearance', testId: 'appearance-side-sheet' },
-    { name: 'viewpoint', testId: 'viewpoint-side-sheet' }
   ])(
     "should open $name side sheet when $name button is clicked",
     ({ name, testId }) => {

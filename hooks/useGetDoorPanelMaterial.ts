@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
-import { useDoorsContext } from "@/context/DoorsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
+import { useMaterials } from "@/context/MaterialsContext";
 
 export default function useGetDoorPanelMaterial() {
-  const { color } = useDoorsContext();
+  const { doors: { color } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

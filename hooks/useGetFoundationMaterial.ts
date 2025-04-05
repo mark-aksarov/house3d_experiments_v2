@@ -1,14 +1,14 @@
 import { MeshPhysicalMaterial } from "three";
 import { useCallback, useMemo, useRef } from "react";
 import materialDefaults from "@/utils/materialDefaults";
-import { useFoundationContext } from "@/context/FoundationContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialRoughness from "./useUpdateMaterialRoughness";
 import useUpdateMaterialNormalScale from "./useUpdateMaterialNormalScale";
 import useUpdateMaterialTexturesRepeat from "./useUpdateMaterialTexturesRepeat";
 
 export default function useGetFoundationMaterial() {
-  const { textureName } = useFoundationContext();
+  const { foundation: { textureName } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

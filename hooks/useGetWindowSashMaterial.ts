@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
-import { useWindowsContext } from "@/context/WindowsContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetWindowSashMaterial() {
-  const { sashColor } = useWindowsContext();
+  const { windows: { sashColor } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

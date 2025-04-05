@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useRef } from "react";
-import { useRoofContext } from "@/context/RoofContext";
 import materialDefaults from "@/utils/materialDefaults";
-import { DoubleSide, MeshPhysicalMaterial, Vector2 } from "three";
+import { DoubleSide, MeshPhysicalMaterial } from "three";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialRoughness from "./useUpdateMaterialRoughness";
 import useUpdateMaterialNormalScale from "./useUpdateMaterialNormalScale";
 import useUpdateMaterialTexturesRepeat from "./useUpdateMaterialTexturesRepeat";
 
 export default function useGetRoofCoverMaterial() {
-  const { coverTextureName: textureName } = useRoofContext();
+  const { roof: { coverTextureName: textureName } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

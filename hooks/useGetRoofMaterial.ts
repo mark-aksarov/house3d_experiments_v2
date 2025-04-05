@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
-import { useRoofContext } from "@/context/RoofContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetRoofMaterial() {
-  const { color } = useRoofContext();
+  const { roof: { color } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

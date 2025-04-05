@@ -2,19 +2,22 @@
 
 import { Object3D } from 'three';
 import { GLTF, GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import React, { createContext, useContext, ReactNode, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, ReactNode, useReducer, useEffect, Dispatch } from 'react';
 
 export type ModelCollection = Record<ModelName, Object3D>;
-export type ModelName = 'House1';
+export type ModelName = 'House1' | 'House2' | 'House3' | 'House4';
 
 const modelLoadData: { modelName: ModelName; url: string }[] = [
-  { modelName: 'House1', url: 'models/house1.glb' }
+  { modelName: 'House1', url: 'models/house1.glb' },
+  { modelName: 'House2', url: 'models/house1.glb' },
+  { modelName: 'House3', url: 'models/house1.glb' },
+  { modelName: 'House4', url: 'models/house1.glb' },
 ];
 
-// Union type for load state
 export type Status = 'pending' | 'success' | 'error';
 
 export interface State {
+  selectedModelName: ModelName;
   models: ModelCollection | null;
   status: Status;
 }
@@ -22,9 +25,11 @@ export interface State {
 type Action =
   | { type: 'load'; models: ModelCollection }
   | { type: 'error' }
-  | { type: 'pending' };
+  | { type: 'pending' }
+  | { type: 'selectedModelNameChanged'; modelName: ModelName };
 
 const initialState: State = {
+  selectedModelName: 'House1',
   models: null,
   status: 'pending',
 };
@@ -37,15 +42,16 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, status: 'error' };
     case 'pending':
       return { ...state, status: 'pending' };
+    case 'selectedModelNameChanged':
+      return { ...state, selectedModelName: action.modelName };
     default:
       return state;
   }
 };
 
-// ModelsContext creation
 export const ModelsContext = createContext<State | null>(null);
+export const ModelsDispatchContext = createContext<Dispatch<Action> | null>(null);
 
-// ModelsContextProvider component
 export function ModelsProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -82,16 +88,25 @@ export function ModelsProvider({ children }: { children: ReactNode }) {
 
   return (
     <ModelsContext.Provider value={state}>
-      {children}
+      <ModelsDispatchContext.Provider value={dispatch}>
+        {children}
+      </ModelsDispatchContext.Provider>
     </ModelsContext.Provider>
   );
 };
 
-// Custom hook to use ModelsContext
 export const useModels = () => {
   const context = useContext(ModelsContext);
   if (!context) {
     throw new Error('useModels must be used within a ModelsContextProvider');
+  }
+  return context;
+};
+
+export const useModelsDispatch = () => {
+  const context = useContext(ModelsDispatchContext);
+  if (!context) {
+    throw new Error('useModelsDispatch must be used within a ModelsContextProvider');
   }
   return context;
 };

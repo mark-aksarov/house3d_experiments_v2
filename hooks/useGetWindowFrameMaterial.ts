@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 import { DoubleSide, MeshPhysicalMaterial } from "three";
-import { useWindowsContext } from "@/context/WindowsContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetWindowFrameMaterial() {
-  const { frameColor } = useWindowsContext();
+  const { windows: { frameColor } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

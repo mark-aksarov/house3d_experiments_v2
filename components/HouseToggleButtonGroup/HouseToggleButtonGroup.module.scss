@@ -10,17 +10,10 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-3);
 
   @include mixins.breakpoint-less-than(md) {
     display: none;
   }
-}
-
-.color {
-  display: block;
-  width: 62px;
-  height: 62px;
-
 }

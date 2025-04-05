@@ -13,11 +13,11 @@ export default function useUpdateMaterialTextures({
   textureName,
   getMaterial
 }: UseUpdateMaterialTexturesProps) {
-  const { textures, status } = useTextures();
+  const { textures, status: texturesLoadStatus } = useTextures();
   const { render } = useThree();
 
   useEffect(() => {
-    if (textures && status === "success") {
+    if (textures && texturesLoadStatus === "success") {
       const material = getMaterial();
       material.needsUpdate = true;
 
@@ -94,5 +94,5 @@ export default function useUpdateMaterialTextures({
         render();
       }
     }
-  }, [getMaterial, textures, status, textureName, render])
+  }, [getMaterial, textures, texturesLoadStatus, textureName, render])
 }

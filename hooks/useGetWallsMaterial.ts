@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useRef } from "react";
 import materialDefaults from "@/utils/materialDefaults";
 import { DoubleSide, MeshPhysicalMaterial } from "three";
-import { useWallsContext } from "@/context/WallsContext";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialRoughness from "./useUpdateMaterialRoughness";
 import useUpdateMaterialNormalScale from "./useUpdateMaterialNormalScale";
 import useUpdateMaterialTexturesRepeat from "./useUpdateMaterialTexturesRepeat";
 
 export default function useGetWallsMaterial() {
-  const { textureName } = useWallsContext();
+  const { walls: { textureName } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {
