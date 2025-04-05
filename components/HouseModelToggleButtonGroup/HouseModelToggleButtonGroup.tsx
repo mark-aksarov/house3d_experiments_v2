@@ -1,7 +1,7 @@
 import Stack from "@/uikit/Stack";
 import ImageButton from "@/uikit/ImageButton";
 import Image, { StaticImageData } from "next/image";
-import styles from './HouseToggleButtonGroup.module.scss';
+import styles from './HouseModelToggleButtonGroup.module.scss';
 import ToggleButtonGroup, { ToggleButton } from "@/uikit/ToggleButton";
 import { ModelName, useModels, useModelsDispatch } from "@/context/ModelsContext";
 
@@ -37,7 +37,7 @@ const houses: {
     }
   ];
 
-export default function HouseToggleButtonGroup() {
+export default function HouseModelToggleButtonGroup() {
   const { selectedModelName } = useModels();
   const dispatch = useModelsDispatch();
 
@@ -62,7 +62,7 @@ export default function HouseToggleButtonGroup() {
 
   return (
     <ToggleButtonGroup
-      data-testid="viewpoint-toggle-button-group"
+      data-testid="house-model-toggle-button-group"
       value={selectedModelName}
       onChange={(value) =>
         dispatch({

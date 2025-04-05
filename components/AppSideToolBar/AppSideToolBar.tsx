@@ -38,13 +38,13 @@ export default function AppSideToolBar() {
               onClick={() => handleValueChange("appearance")}
             />
           </Tooltip>
-          <Tooltip title="House" placement='right' zIndex="calc(var(--z-sheet) + 1)">
+          <Tooltip title="House model" placement='right' zIndex="calc(var(--z-sheet) + 1)">
             <ToggleButton
-              aria-label='House'
+              aria-label='House model'
               as={AppSideToolBarButton}
               icon={<BoxIcon />}
-              value="house"
-              onClick={() => handleValueChange("house")}
+              value="houseModel"
+              onClick={() => handleValueChange("houseModel")}
             />
           </Tooltip>
         </Stack>

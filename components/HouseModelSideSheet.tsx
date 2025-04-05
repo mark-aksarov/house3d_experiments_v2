@@ -1,33 +1,31 @@
-import Stack from "@/uikit/Stack";
 import Divider from "@/uikit/Divider";
-import Typography from "@/uikit/Typography";
 import { SheetHeader } from "@/uikit/Sheet";
-import BaseSideSheet from "../BaseSideSheet";
-import { useAppSideToolBar } from "../AppSideToolBar";
+import BaseSideSheet from "./BaseSideSheet";
+import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
-import HouseToggleButtonGroup from "../HouseToggleButtonGroup";
-import BaseSideSheetBody from "../BaseSideSheet/BaseSideSheetBody";
+import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
+import HouseModelToggleButtonGroup from "./HouseModelToggleButtonGroup";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
 
-export default function HouseSideSheet() {
+export default function HouseModelSideSheet() {
   const { setSelectedValue } = useAppSideToolBar();
   const sheetName = useOpenedSideSheetName();
   const closeSheet = useCloseSideSheet();
 
   function handleClose() {
-    closeSheet("house");
+    closeSheet("houseModel");
     setSelectedValue("");
   }
 
   return (
     <BaseSideSheet
-      data-testid="house-side-sheet"
+      data-testid="house-model-side-sheet"
       restoreFocus={false}
-      open={sheetName === "house"}
+      open={sheetName === "houseModel"}
       onClose={handleClose}
     >
       <SheetHeader>
-        House
+        House model
       </SheetHeader>
 
       <Divider />
@@ -35,12 +33,7 @@ export default function HouseSideSheet() {
       <BaseSideSheetBody>
         <ListGroup>
           <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
-              <Typography variant="header5">
-                House
-              </Typography>
-              <HouseToggleButtonGroup />
-            </Stack>
+            <HouseModelToggleButtonGroup />
           </ListItem>
         </ListGroup>
       </BaseSideSheetBody>
