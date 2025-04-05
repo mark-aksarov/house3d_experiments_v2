@@ -5,7 +5,7 @@ import AppSideToolBarButton from "./AppSideToolBarButton";
 import { useAppSideToolBar } from './AppSideToolBarContext';
 import { useOpenSideSheet } from '@/context/SideSheetsContext';
 import ToggleButtonGroup, { ToggleButton } from '@/uikit/ToggleButton';
-import { AppWindowMacIcon, BoxIcon, SettingsIcon } from 'lucide-react';
+import { AppWindowMacIcon, BoxIcon, BrickWallIcon, SettingsIcon } from 'lucide-react';
 
 export default function AppSideToolBar() {
   const { selectedValue, setSelectedValue } = useAppSideToolBar();
@@ -45,6 +45,15 @@ export default function AppSideToolBar() {
               icon={<BoxIcon />}
               value="houseModel"
               onClick={() => handleValueChange("houseModel")}
+            />
+          </Tooltip>
+          <Tooltip title="House elements" placement='right' zIndex="calc(var(--z-sheet) + 1)">
+            <ToggleButton
+              aria-label='House elements'
+              as={AppSideToolBarButton}
+              icon={<BrickWallIcon />}
+              value="houseElements"
+              onClick={() => handleValueChange("houseElements")}
             />
           </Tooltip>
         </Stack>

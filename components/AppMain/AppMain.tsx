@@ -20,9 +20,11 @@ import AppearanceBottomSheet from '../AppearanceBottomSheet';
 import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
+import HouseElementsSideSheet from '../HouseElementsSideSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
+import HouseElementsBottomSheet from '../HouseElementsBottomSheet/HouseElementsBottomSheet';
 
 interface AppMainProps {
   aboutSheetOpen: boolean;
@@ -60,14 +62,17 @@ export default function AppMain({
       <AppearanceBottomSheet />
       <MarkerSizeBottomSheet />
       <HouseModelBottomSheet />
+      <HouseElementsBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
+      <HouseModelSideSheet />
+      <HouseElementsSideSheet />
+
       <SceneControls />
 
       <AppBottomToolBar />
       <AppSideToolBar />
-      <HouseModelSideSheet />
 
       <AboutSheet open={aboutSheetOpen} onClose={() => setAboutSheetOpen(false)} />
       <AboutModal open={aboutModalOpen} onOpenChange={setAboutModalOpen} />

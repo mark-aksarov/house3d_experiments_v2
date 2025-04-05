@@ -3,7 +3,7 @@ import { Tab, Tabs } from "@/uikit/Tabs";
 import styles from './AppBottomToolBar.module.scss';
 import { useAppBottomToolBar } from "./AppBottomToolBarContext";
 import { useOpenBottomSheet } from "@/context/BottomSheetsContext";
-import { AppWindowMacIcon, BoxIcon, SettingsIcon } from "lucide-react";
+import { AppWindowMacIcon, BoxIcon, BrickWallIcon, SettingsIcon } from "lucide-react";
 
 export default function AppBottomToolBar() {
   const { toolBarTab, setToolBarTab } = useAppBottomToolBar();
@@ -37,7 +37,14 @@ export default function AppBottomToolBar() {
             size="small"
             onClick={() => handleTabChange("houseModel")}
             icon={<BoxIcon />}
-            label="House model"
+            label="Model"
+          />
+          <Tab
+            id="houseElements"
+            size="small"
+            onClick={() => handleTabChange("houseElements")}
+            icon={<BrickWallIcon />}
+            label="Elements"
           />
         </Stack>
       </Tabs>
