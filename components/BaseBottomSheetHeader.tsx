@@ -27,7 +27,7 @@ export default function BaseBottomSheetHeader({
 
   return (
     <BottomSheetHeader
-      onBackButtonClick={openPrevSheet}
+      onBackButtonClick={prevSheetName ? openPrevSheet : undefined}
       closeButtonSize={closeButtonSize}
       {...props}
     >
