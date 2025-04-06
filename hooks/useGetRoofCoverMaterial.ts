@@ -8,7 +8,11 @@ import useUpdateMaterialNormalScale from "./useUpdateMaterialNormalScale";
 import useUpdateMaterialTexturesRepeat from "./useUpdateMaterialTexturesRepeat";
 
 export default function useGetRoofCoverMaterial() {
-  const { roof: { coverTextureName: textureName } } = useMaterials();
+  const {
+    roof: {
+      coverTextureName: textureName
+    }
+  } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

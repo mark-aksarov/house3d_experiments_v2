@@ -39,7 +39,7 @@ export default function AppearanceBottomSheet() {
       onClose={handleClose}
     >
       <SheetHeader>
-        User interface
+        Appearance
       </SheetHeader>
 
       <Divider />

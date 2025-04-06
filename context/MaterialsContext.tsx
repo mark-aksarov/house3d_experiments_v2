@@ -43,26 +43,26 @@ type MaterialsAction =
 const initialState: MaterialsState = {
   roof: {
     coverTextureName: 'RoofingTiles003',
-    color: 0xffffff
+    color: "#ffffff"
   },
   fence: {
-    color: 0xffffff
+    color: "#ffffff"
   },
   foundation: {
     textureName: 'Plaster003'
   },
   corners: {
-    color: 0xffffff
+    color: "#ffffff"
   },
   walls: {
     textureName: 'Bricks092'
   },
   windows: {
-    sashColor: 0x634A33,
-    frameColor: 0xffffff
+    sashColor: "#634A33",
+    frameColor: "#ffffff"
   },
   doors: {
-    color: 0x632D11
+    color: "#632D11"
   },
 };
 

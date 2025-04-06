@@ -1,0 +1,30 @@
+@use 'uikit/styles/mixins';
+
+.stack {
+  overflow: auto;
+
+  @include mixins.breakpoint-greater-than(md) {
+    display: none;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  @include mixins.breakpoint-less-than(md) {
+    display: none;
+  }
+}
+
+.imageWrapper {
+  width: 62px;
+  height: 62px;
+
+  @include mixins.breakpoint-greater-than(md) {
+    width: 85px;
+    height: 85px;
+  }
+}

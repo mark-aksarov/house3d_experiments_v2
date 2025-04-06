@@ -1,0 +1,25 @@
+@use 'uikit/styles/mixins';
+
+.stack {
+  overflow: auto;
+
+  @include mixins.breakpoint-greater-than(md) {
+    display: none;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+
+  @include mixins.breakpoint-less-than(md) {
+    display: none;
+  }
+}
+
+.color {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

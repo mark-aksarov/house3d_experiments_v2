@@ -3,6 +3,7 @@ import AboutModal from '../AboutModal';
 import useHouse from "@/hooks/useHouse";
 import useGround from "@/hooks/useGround";
 import styles from './AppMain.module.scss';
+import RoofSideSheet from '../RoofSideSheet';
 import SceneControls from '../SceneControls';
 import useSunLight from "@/hooks/useSunLight";
 import AppSideToolBar from '../AppSideToolBar';
@@ -27,6 +28,7 @@ import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
 import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
 import HouseElementsBottomSheet from '../HouseElementsBottomSheet/HouseElementsBottomSheet';
+import RoofBottomSheet from '../RoofBottomSheet/RoofBottomSheet';
 
 interface AppMainProps {
   aboutSheetOpen: boolean;
@@ -67,11 +69,13 @@ export default function AppMain({
       <HouseElementsBottomSheet />
       <AmbientLightIntensityBottomSheet />
       <ShadowsResolutionBottomSheet />
+      <RoofBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
       <HouseModelSideSheet />
       <HouseElementsSideSheet />
+      <RoofSideSheet />
 
       <SceneControls />
 
