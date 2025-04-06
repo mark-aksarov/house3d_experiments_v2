@@ -1,9 +1,6 @@
-import Image from "next/image";
-import Stack from "@/uikit/Stack";
-import ImageButton from "@/uikit/ImageButton";
+import { StaticImageData } from "next/image";
 import { TextureName } from "@/context/TexturesContext";
-import styles from './RoofCoverTextureToggleButtonGroup.module.scss';
-import ToggleButtonGroup, { ToggleButton } from "@/uikit/ToggleButton";
+import TextureToggleButtonGroup from "./TextureToggleButtonGroup";
 import { useMaterials, useMaterialsDispatch } from "@/context/MaterialsContext";
 
 import RoofingTiles003Url from "public/textures/RoofingTiles003/RoofingTiles003.jpg";
@@ -14,7 +11,7 @@ import RoofingTiles013AUrl from "public/textures/RoofingTiles013A/RoofingTiles01
 import RoofingTiles014AUrl from "public/textures/RoofingTiles014A/RoofingTiles014A.jpg";
 import RoofingTiles015AUrl from "public/textures/RoofingTiles015A/RoofingTiles015A.jpg";
 
-const data = [
+const data: Array<{ src: StaticImageData; value: TextureName; label: string }> = [
   {
     src: RoofingTiles003Url,
     value: "RoofingTiles003",
@@ -56,42 +53,12 @@ export default function RoofCoverTextureToggleButtonGroup() {
   const { roof: { coverTextureName } } = useMaterials();
   const dispatch = useMaterialsDispatch();
 
-  const content = data.map(({ src, value, label }) => (
-    <ToggleButton
-      key={value}
-      as={ImageButton}
-      size="small"
-      label={label}
-      value={value}
-      imageWrapperClassName={styles.imageWrapper}
-      image={
-        <Image
-          src={src}
-          alt=""
-          width={85}
-          height={85}
-        />
-      }
-    />
-  ))
-
   return (
-    <ToggleButtonGroup
+    <TextureToggleButtonGroup
       data-testid="roof-cover-texture-toggle-button-group"
-      value={coverTextureName}
-      onChange={(value) => dispatch({ type: "roofCoverTextureChanged", payload: value as TextureName })}
-    >
-      <Stack
-        spacing={3}
-        wrap="nowrap"
-        className={styles.stack}
-      >
-        {content}
-      </Stack>
-
-      <div className={styles.grid}>
-        {content}
-      </div>
-    </ToggleButtonGroup>
+      data={data}
+      textureName={coverTextureName}
+      onChange={(textureName) => dispatch({ type: "roofCoverTextureChanged", payload: textureName })}
+    />
   )
 }

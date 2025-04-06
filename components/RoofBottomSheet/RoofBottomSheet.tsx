@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Stack from "@/uikit/Stack";
 import Divider from "@/uikit/Divider";
+import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { Tab, TabPanel, Tabs } from "@/uikit/Tabs";
 import styles from './RoofBottomSheet.module.scss';
-import { SheetBody, SheetHeader } from "@/uikit/Sheet";
 import { useAppBottomToolBar } from "../AppBottomToolBar";
 import { CircleDotIcon, SunMediumIcon } from "lucide-react";
+import BaseBottomSheetHeader from "../BaseBottomSheetHeader";
 import TabPanelContainer from "@/uikit/Tabs/TabPanelContainer";
 import RoofColorToggleButtonGroup from "../RoofColorToggleButtonGroup";
 import RoofCoverTextureToggleButtonGroup from "../RoofCoverTextureToggleButtonGroup";
@@ -16,7 +17,7 @@ export default function RoofBottomSheet() {
   const sheetName = useOpenedBottomSheetName();
   const closeSheet = useCloseBottomSheet();
   const { setToolBarTab } = useAppBottomToolBar();
-  const [appearanceTab, setAppearanceTab] = useState("textureTab");
+  const [roofTab, setRoofTab] = useState("textureTab");
 
   function handleClose() {
     closeSheet("roof");
@@ -30,14 +31,14 @@ export default function RoofBottomSheet() {
       open={sheetName === "roof"}
       onClose={handleClose}
     >
-      <SheetHeader>
-        Appearance
-      </SheetHeader>
+      <BaseBottomSheetHeader prevSheetName="houseElements">
+        Roof
+      </BaseBottomSheetHeader>
 
       <Divider />
 
       <SheetBody className={styles.sheetBody}>
-        <Tabs value={appearanceTab} onChange={(tab) => setAppearanceTab(tab)}>
+        <Tabs value={roofTab} onChange={(tab) => setRoofTab(tab)}>
           <Stack spacing={7} justifyContent="center">
             <Tab
               id="textureTab"
@@ -60,7 +61,7 @@ export default function RoofBottomSheet() {
           <TabPanel
             id="texturePanel"
             tabId="textureTab"
-            activeTabId={appearanceTab}
+            activeTabId={roofTab}
             className={styles.panel}
           >
             <RoofCoverTextureToggleButtonGroup />
@@ -69,7 +70,7 @@ export default function RoofBottomSheet() {
           <TabPanel
             id="colorPanel"
             tabId="colorTab"
-            activeTabId={appearanceTab}
+            activeTabId={roofTab}
             className={styles.panel}
           >
             <RoofColorToggleButtonGroup />

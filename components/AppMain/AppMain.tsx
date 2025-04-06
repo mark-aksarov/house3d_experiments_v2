@@ -6,9 +6,11 @@ import styles from './AppMain.module.scss';
 import RoofSideSheet from '../RoofSideSheet';
 import SceneControls from '../SceneControls';
 import useSunLight from "@/hooks/useSunLight";
+import FenceSideSheet from '../FenceSideSheet';
 import AppSideToolBar from '../AppSideToolBar';
 import { Dispatch, SetStateAction } from "react";
 import usePointLight from "@/hooks/usePointLight";
+import FenceBottomSheet from '../FenceBottomSheet';
 import AppBottomToolBar from '../AppBottomToolBar';
 import SettingsSideSheet from '../SettingsSideSheet';
 import useAmbientLight from "@/hooks/useAmbientLight";
@@ -23,12 +25,12 @@ import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
 import HouseElementsSideSheet from '../HouseElementsSideSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
+import RoofBottomSheet from '../RoofBottomSheet/RoofBottomSheet';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
 import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
 import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
 import HouseElementsBottomSheet from '../HouseElementsBottomSheet/HouseElementsBottomSheet';
-import RoofBottomSheet from '../RoofBottomSheet/RoofBottomSheet';
 
 interface AppMainProps {
   aboutSheetOpen: boolean;
@@ -70,12 +72,14 @@ export default function AppMain({
       <AmbientLightIntensityBottomSheet />
       <ShadowsResolutionBottomSheet />
       <RoofBottomSheet />
+      <FenceBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
       <HouseModelSideSheet />
       <HouseElementsSideSheet />
       <RoofSideSheet />
+      <FenceSideSheet />
 
       <SceneControls />
 
