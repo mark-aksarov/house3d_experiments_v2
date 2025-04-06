@@ -13,6 +13,8 @@ import CameraMovingRadioGroup from "../CameraMovingRadioGroup";
 import BaseSideSheetBody from "../BaseSideSheet/BaseSideSheetBody";
 import ToneMappingRangeInput from "../ToneMappingExposureRangeInput";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
+import AmbientLightIntensityRangeInput from "../AmbientLightIntensityRangeInput";
+import ShadowsResolutionRadioGroup from "../ShadowsResolutionRadioGroup";
 
 export default function SettingsSideSheet() {
   const { setSelectedValue } = useAppSideToolBar();
@@ -87,6 +89,39 @@ export default function SettingsSideSheet() {
                 Moving of camera
               </Typography>
               <CameraMovingRadioGroup />
+            </Stack>
+          </ListItem>
+
+          <ListItem>
+            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
+              <Typography variant="header5">
+                Shadows enabled
+              </Typography>
+
+              <Stack justifyContent="space-between" alignItems="center">
+                <Typography variant="body3">
+                  Shadows enabled
+                </Typography>
+                <ShowToastsSwitch />
+              </Stack>
+            </Stack>
+          </ListItem>
+
+          <ListItem>
+            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
+              <Typography variant="header5">
+                Ambient light intensity
+              </Typography>
+              <AmbientLightIntensityRangeInput />
+            </Stack>
+          </ListItem>
+
+          <ListItem>
+            <Stack direction="vertical" spacing={5} alignItems="stretch">
+              <Typography variant="header5">
+                Shadows resolution
+              </Typography>
+              <ShadowsResolutionRadioGroup />
             </Stack>
           </ListItem>
         </ListGroup>

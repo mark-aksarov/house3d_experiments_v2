@@ -10,8 +10,9 @@ import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import { useAppBottomToolBar } from "../AppBottomToolBar";
 import ListItemText from "@/uikit/ListGroup/ListItemText";
 import ListItemIcon from "@/uikit/ListGroup/ListItemIcon";
+import ShadowsEnabledSwitch from "../ShadowsEnabledSwitch";
 import TabPanelContainer from "@/uikit/Tabs/TabPanelContainer";
-import { ArrowRightIcon, BellIcon, SlidersHorizontalIcon, VideoIcon } from "lucide-react";
+import { ArrowRightIcon, BellIcon, LightbulbIcon, SlidersHorizontalIcon, VideoIcon } from "lucide-react";
 import { useCloseBottomSheet, useOpenedBottomSheetName, useOpenBottomSheet } from "@/context/BottomSheetsContext";
 
 export default function SettingsBottomSheet() {
@@ -40,6 +41,14 @@ export default function SettingsBottomSheet() {
 
   function openCameraMovingBottomSheet() {
     openSheet("cameraMoving");
+  }
+
+  function openAmbientLightIntensityBottomSheet() {
+    openSheet("ambientLightIntensity");
+  }
+
+  function openShadowsResolutionBottomSheet() {
+    openSheet("shadowsResolution");
   }
 
   return (
@@ -77,6 +86,12 @@ export default function SettingsBottomSheet() {
               icon={<VideoIcon />}
               label="Camera"
               aria-controls="cameraPanel"
+            />
+            <Tab
+              id="lightTab"
+              icon={<LightbulbIcon />}
+              label="Light"
+              aria-controls="lightPanel"
             />
           </Stack>
         </Tabs>
@@ -144,6 +159,39 @@ export default function SettingsBottomSheet() {
               <ListItem onClick={openCameraMovingBottomSheet}>
                 <ListItemText>
                   Moving of camera
+                </ListItemText>
+                <ListItemIcon>
+                  <ArrowRightIcon className={styles.listItemIcon} />
+                </ListItemIcon>
+              </ListItem>
+            </ListGroup>
+          </TabPanel>
+
+          <TabPanel
+            id="lightPanel"
+            tabId="lightTab"
+            activeTabId={settingTab}
+          >
+            <ListGroup>
+              <ListItem>
+                <ListItemText>
+                  Shadows enabled
+                </ListItemText>
+                <ShadowsEnabledSwitch />
+              </ListItem>
+
+              <ListItem onClick={openAmbientLightIntensityBottomSheet}>
+                <ListItemText>
+                  Ambient light intensity
+                </ListItemText>
+                <ListItemIcon>
+                  <ArrowRightIcon className={styles.listItemIcon} />
+                </ListItemIcon>
+              </ListItem>
+
+              <ListItem onClick={openShadowsResolutionBottomSheet}>
+                <ListItemText>
+                  Shadows resolution
                 </ListItemText>
                 <ListItemIcon>
                   <ArrowRightIcon className={styles.listItemIcon} />

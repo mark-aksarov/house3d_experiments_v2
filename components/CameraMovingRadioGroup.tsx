@@ -17,7 +17,7 @@ export default function CameraMovingRadioGroup() {
       <RadioGroup
         value={checkedName}
         name="cameraMoving"
-        onChange={(value: string) => setCheckedName(value)}
+        onChange={(value) => setCheckedName(value as string)}
       >
         {cameraMovingOptions.map(({ value, label }) => (
           <Radio id={value} key={value} value={value} label={label} />

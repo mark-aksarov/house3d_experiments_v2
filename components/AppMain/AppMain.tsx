@@ -23,7 +23,9 @@ import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
 import HouseElementsSideSheet from '../HouseElementsSideSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
+import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
+import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
 import HouseElementsBottomSheet from '../HouseElementsBottomSheet/HouseElementsBottomSheet';
 
 interface AppMainProps {
@@ -63,6 +65,8 @@ export default function AppMain({
       <MarkerSizeBottomSheet />
       <HouseModelBottomSheet />
       <HouseElementsBottomSheet />
+      <AmbientLightIntensityBottomSheet />
+      <ShadowsResolutionBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
