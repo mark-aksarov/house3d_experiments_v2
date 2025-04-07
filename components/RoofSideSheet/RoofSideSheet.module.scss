@@ -1,7 +1,0 @@
-@use 'uikit/styles/mixins';
-
-.roofCoverTextureStack {
-  @include mixins.breakpoint-greater-than(md) {
-    width: 100%;
-  }
-}

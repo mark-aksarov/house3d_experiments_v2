@@ -2,13 +2,13 @@ import Stack from "@/uikit/Stack";
 import Divider from "@/uikit/Divider";
 import Typography from "@/uikit/Typography";
 import { SheetHeader } from "@/uikit/Sheet";
-import BaseSideSheet from "../BaseSideSheet";
+import BaseSideSheet from "./BaseSideSheet";
 import styles from './RoofSideSheet.module.scss';
-import { useAppSideToolBar } from "../AppSideToolBar";
+import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
-import BaseSideSheetBody from "../BaseSideSheet/BaseSideSheetBody";
-import RoofColorToggleButtonGroup from "../RoofColorToggleButtonGroup";
-import RoofCoverTextureToggleButtonGroup from "../RoofCoverTextureToggleButtonGroup";
+import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
+import RoofColorToggleButtonGroup from "./RoofColorToggleButtonGroup";
+import RoofCoverTextureToggleButtonGroup from "./RoofCoverTextureToggleButtonGroup";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
 
 export default function RoofSideSheet() {
@@ -34,10 +34,10 @@ export default function RoofSideSheet() {
 
       <Divider />
 
-      <BaseSideSheetBody className={styles.sideSheetBody}>
+      <BaseSideSheetBody>
         <ListGroup>
           <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch" className={styles.roofCoverTextureStack}>
+            <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: '100%' }}>
               <Typography variant="header5">
                 Roof cover texture
               </Typography>

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from "react";
 import materialDefaults from "@/utils/materialDefaults";
-import { DoubleSide, MeshPhysicalMaterial } from "three";
+import { DoubleSide, MeshPhysicalMaterial, Vector2 } from "three";
 import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialRoughness from "./useUpdateMaterialRoughness";
@@ -29,7 +29,13 @@ export default function useGetWallsMaterial() {
 
   useUpdateMaterialTextures({ textureName, getMaterial });
 
-  const repeat = useMemo(() => materialDefaults.repeat[textureName], [textureName]);
+  const repeat = useMemo(() => {
+    if (textureName === "Asphalt031") {
+      return new Vector2(3, 3);
+    }
+
+    return materialDefaults.repeat[textureName];
+  }, [textureName]);
   useUpdateMaterialTexturesRepeat({ repeat, getMaterial });
 
   const roughness = useMemo(() => materialDefaults.roughness[textureName], [textureName]);

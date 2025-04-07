@@ -6,12 +6,14 @@ import styles from './AppMain.module.scss';
 import RoofSideSheet from '../RoofSideSheet';
 import SceneControls from '../SceneControls';
 import useSunLight from "@/hooks/useSunLight";
+import WallsSideSheet from '../WallsSideSheet';
 import FenceSideSheet from '../FenceSideSheet';
 import AppSideToolBar from '../AppSideToolBar';
 import { Dispatch, SetStateAction } from "react";
 import usePointLight from "@/hooks/usePointLight";
 import FenceBottomSheet from '../FenceBottomSheet';
 import AppBottomToolBar from '../AppBottomToolBar';
+import WallsBottomSheet from '../WallsBottomSheet';
 import SettingsSideSheet from '../SettingsSideSheet';
 import useAmbientLight from "@/hooks/useAmbientLight";
 import MaterialsSideSheet from '../MaterialsSideSheet';
@@ -73,6 +75,7 @@ export default function AppMain({
       <ShadowsResolutionBottomSheet />
       <RoofBottomSheet />
       <FenceBottomSheet />
+      <WallsBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
@@ -80,6 +83,7 @@ export default function AppMain({
       <MaterialsSideSheet />
       <RoofSideSheet />
       <FenceSideSheet />
+      <WallsSideSheet />
 
       <SceneControls />
 

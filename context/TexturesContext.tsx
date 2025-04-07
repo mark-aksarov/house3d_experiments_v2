@@ -4,7 +4,6 @@ import { Texture, TextureLoader } from 'three';
 export type TextureCollection = { [x in TextureName]: { [x in TextureMapType]?: Texture } };
 
 export type TextureName =
-  "Asphalt029A" |
   "Asphalt029B" |
   "Asphalt006" |
   "Asphalt030" |
@@ -29,15 +28,6 @@ const textureLoadData: Array<{
   textureName: TextureName;
   data: Array<{ mapType: TextureMapType; url: string }>;
 }> = [
-    {
-      textureName: "Asphalt029A",
-      data: [
-        { mapType: "color", url: "textures/Asphalt029A/Asphalt029A_1K-JPG_Color.jpg" },
-        { mapType: "ao", url: "textures/Asphalt029A/Asphalt029A_1K-JPG_AmbientOcclusion.jpg" },
-        { mapType: "roughness", url: "textures/Asphalt029A/Asphalt029A_1K-JPG_Roughness.jpg" },
-        { mapType: "normal", url: "textures/Asphalt029A/Asphalt029A_1K-JPG_NormalGL.jpg" },
-      ]
-    },
     {
       textureName: "Asphalt029B",
       data: [
