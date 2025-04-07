@@ -59,6 +59,7 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
 
           if (object.name === "Paving") {
             object.material = getPavingMaterial();
+            object.receiveShadow = true;
           }
           else if (object.name === "Road") {
             object.material = getRoadMaterial();

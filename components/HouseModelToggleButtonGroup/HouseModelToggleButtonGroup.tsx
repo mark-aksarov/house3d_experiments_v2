@@ -5,10 +5,8 @@ import styles from './HouseModelToggleButtonGroup.module.scss';
 import ToggleButtonGroup, { ToggleButton } from "@/uikit/ToggleButton";
 import { ModelName, useModels, useModelsDispatch } from "@/context/ModelsContext";
 
-import house1 from 'public/images/house.jpg';
-import house2 from 'public/images/house.jpg';
-import house3 from 'public/images/house.jpg';
-import house4 from 'public/images/house.jpg';
+import house1 from 'public/images/house1.jpg';
+import house2 from 'public/images/house2.jpg';
 
 const houses: {
   value: ModelName,
@@ -24,16 +22,6 @@ const houses: {
       value: "House2",
       image: house2,
       label: "House 2"
-    },
-    {
-      value: "House3",
-      image: house3,
-      label: "House 3"
-    },
-    {
-      value: "House4",
-      image: house4,
-      label: "House 4"
     }
   ];
 

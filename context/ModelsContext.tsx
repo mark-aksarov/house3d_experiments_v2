@@ -5,13 +5,11 @@ import { GLTF, GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import React, { createContext, useContext, ReactNode, useReducer, useEffect, Dispatch } from 'react';
 
 export type ModelCollection = Record<ModelName, Object3D>;
-export type ModelName = 'House1' | 'House2' | 'House3' | 'House4';
+export type ModelName = 'House1' | 'House2';
 
 const modelLoadData: { modelName: ModelName; url: string }[] = [
   { modelName: 'House1', url: 'models/house1.glb' },
-  { modelName: 'House2', url: 'models/house1.glb' },
-  { modelName: 'House3', url: 'models/house1.glb' },
-  { modelName: 'House4', url: 'models/house1.glb' },
+  { modelName: 'House2', url: 'models/house2.glb' },
 ];
 
 export type Status = 'pending' | 'success' | 'error';
