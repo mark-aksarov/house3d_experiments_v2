@@ -14,6 +14,7 @@ import FenceBottomSheet from '../FenceBottomSheet';
 import AppBottomToolBar from '../AppBottomToolBar';
 import SettingsSideSheet from '../SettingsSideSheet';
 import useAmbientLight from "@/hooks/useAmbientLight";
+import MaterialsSideSheet from '../MaterialsSideSheet';
 import HouseModelSideSheet from "../HouseModelSideSheet";
 import AppearanceSideSheet from '../AppearanceSideSheet';
 import SettingsBottomSheet from '../SettingsBottomSheet';
@@ -23,14 +24,13 @@ import AppearanceBottomSheet from '../AppearanceBottomSheet';
 import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
-import HouseElementsSideSheet from '../HouseElementsSideSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
 import RoofBottomSheet from '../RoofBottomSheet/RoofBottomSheet';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
 import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
 import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
-import HouseElementsBottomSheet from '../HouseElementsBottomSheet/HouseElementsBottomSheet';
+import HouseElementsBottomSheet from '../MaterialsBottomSheet/MaterialsBottomSheet';
 
 interface AppMainProps {
   aboutSheetOpen: boolean;
@@ -77,7 +77,7 @@ export default function AppMain({
       <SettingsSideSheet />
       <AppearanceSideSheet />
       <HouseModelSideSheet />
-      <HouseElementsSideSheet />
+      <MaterialsSideSheet />
       <RoofSideSheet />
       <FenceSideSheet />
 

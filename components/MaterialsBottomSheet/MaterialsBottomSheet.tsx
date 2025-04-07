@@ -1,39 +1,39 @@
 import Divider from "@/uikit/Divider";
 import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
+import MaterialsListGroup from "../MaterialsListGroup";
+import styles from './MaterialsBottomSheet.module.scss';
 import { useAppBottomToolBar } from "../AppBottomToolBar";
-import styles from './HouseElementsBottomSheet.module.scss';
 import BaseBottomSheetHeader from "../BaseBottomSheetHeader";
-import HouseElementsListGroup from "../HouseElementsListGroup";
 import { useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 import { useCloseBottomSheet, useOpenBottomSheet } from "@/context/BottomSheetsContext";
 
-export default function HouseElementsBottomSheet() {
+export default function MaterialsBottomSheet() {
   const sheetName = useOpenedBottomSheetName();
   const closeSheet = useCloseBottomSheet();
   const openSheet = useOpenBottomSheet();
   const { setToolBarTab } = useAppBottomToolBar();
 
   function handleClose() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     setToolBarTab("");
   }
 
   return (
     <BottomSheet
-      data-testid="house-elements-bottom-sheet"
+      data-testid="materials-bottom-sheet"
       restoreFocus={false}
-      open={sheetName === "houseElements"}
+      open={sheetName === "materials"}
       onClose={handleClose}
     >
       <BaseBottomSheetHeader>
-        House elements
+        Materials
       </BaseBottomSheetHeader>
 
       <Divider />
 
       <SheetBody className={styles.sheetBody}>
-        <HouseElementsListGroup
+        <MaterialsListGroup
           closeSheet={closeSheet}
           openSheet={openSheet}
         />

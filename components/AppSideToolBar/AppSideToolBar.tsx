@@ -47,13 +47,13 @@ export default function AppSideToolBar() {
               onClick={() => handleValueChange("houseModel")}
             />
           </Tooltip>
-          <Tooltip title="House elements" placement='right' zIndex="calc(var(--z-sheet) + 1)">
+          <Tooltip title="Materials" placement='right' zIndex="calc(var(--z-sheet) + 1)">
             <ToggleButton
-              aria-label='House elements'
+              aria-label='Materials'
               as={AppSideToolBarButton}
               icon={<BrickWallIcon />}
-              value="houseElements"
-              onClick={() => handleValueChange("houseElements")}
+              value="materials"
+              onClick={() => handleValueChange("materials")}
             />
           </Tooltip>
         </Stack>

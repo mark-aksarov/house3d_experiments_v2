@@ -1,53 +1,53 @@
 import { ArrowRightIcon } from "lucide-react";
-import styles from './HouseElementsListGroup.module.scss';
+import styles from './MaterialsListGroup.module.scss';
 import ListGroup, { ListItem, ListItemIcon, ListItemText } from "@/uikit/ListGroup";
 
-interface HouseElementsListGroupProps {
+interface MaterialsListGroupProps {
   closeSheet: (sheetName: string) => void;
   openSheet: (sheetName: string) => void;
 }
 
-export default function HouseElementsListGroup({
+export default function MaterialsListGroup({
   closeSheet,
   openSheet,
-}: HouseElementsListGroupProps) {
+}: MaterialsListGroupProps) {
   function openRoofSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("roof");
   }
 
   function openWallsSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("walls");
   }
 
   function openFenceSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("fence");
   }
 
   function openWindowsSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("windows");
   }
 
   function openCornersSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("corners");
   }
 
   function openDoorsSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("doors");
   }
 
   function openPavingSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("paving");
   }
 
   function openFoundationSideSheet() {
-    closeSheet("houseElements");
+    closeSheet("materials");
     openSheet("foundation");
   }
 

@@ -40,11 +40,11 @@ export default function AppBottomToolBar() {
             label="Model"
           />
           <Tab
-            id="houseElements"
+            id="materials"
             size="small"
-            onClick={() => handleTabChange("houseElements")}
+            onClick={() => handleTabChange("materials")}
             icon={<BrickWallIcon />}
-            label="Elements"
+            label="Materials"
           />
         </Stack>
       </Tabs>
