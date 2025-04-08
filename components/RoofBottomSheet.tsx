@@ -3,34 +3,34 @@ import { SheetBody } from "@/uikit/Sheet";
 import BaseSheetHeader from "./BaseSheetHeader";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
-import FenceColorToggleButtonGroup from "./FenceColorToggleButtonGroup";
+import RoofCoverTextureToggleButtonGroup from "./RoofCoverTextureToggleButtonGroup";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
-export default function FenceBottomSheet() {
+export default function RoofBottomSheet() {
   const sheetName = useOpenedBottomSheetName();
   const closeSheet = useCloseBottomSheet();
   const { setToolBarTab } = useAppBottomToolBar();
 
   function handleClose() {
-    closeSheet("fence");
+    closeSheet("roof");
     setToolBarTab("");
   }
 
   return (
     <BottomSheet
-      data-testid="fence-bottom-sheet"
+      data-testid="roof-bottom-sheet"
       restoreFocus={false}
-      open={sheetName === "fence"}
+      open={sheetName === "roof"}
       onClose={handleClose}
     >
       <BaseSheetHeader prevSheetName="materials">
-        Fence
+        Roof
       </BaseSheetHeader>
 
       <Divider />
 
       <SheetBody>
-        <FenceColorToggleButtonGroup />
+        <RoofCoverTextureToggleButtonGroup />
       </SheetBody>
     </BottomSheet>
   )

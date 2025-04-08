@@ -1,8 +1,11 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
+import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetGatesFrameMaterial() {
+  const { common: { color } } = useMaterials();
+
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {
     if (materialRef.current !== null) {
@@ -19,7 +22,7 @@ export default function useGetGatesFrameMaterial() {
     return material;
   }, [])
 
-  useUpdateMaterialColor({ color: 0xffffff, getMaterial });
+  useUpdateMaterialColor({ color, getMaterial });
 
   return getMaterial;
 }

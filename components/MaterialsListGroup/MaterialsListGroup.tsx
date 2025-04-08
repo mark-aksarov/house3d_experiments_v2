@@ -11,34 +11,14 @@ export default function MaterialsListGroup({
   closeSheet,
   openSheet,
 }: MaterialsListGroupProps) {
+  function openCommonSideSheet() {
+    closeSheet("materials");
+    openSheet("common");
+  }
+
   function openRoofSideSheet() {
     closeSheet("materials");
     openSheet("roof");
-  }
-
-  function openWallsSideSheet() {
-    closeSheet("materials");
-    openSheet("walls");
-  }
-
-  function openFenceSideSheet() {
-    closeSheet("materials");
-    openSheet("fence");
-  }
-
-  function openWindowsSideSheet() {
-    closeSheet("materials");
-    openSheet("windows");
-  }
-
-  function openCornersSideSheet() {
-    closeSheet("materials");
-    openSheet("corners");
-  }
-
-  function openDoorsSideSheet() {
-    closeSheet("materials");
-    openSheet("doors");
   }
 
   function openFoundationSideSheet() {
@@ -46,11 +26,44 @@ export default function MaterialsListGroup({
     openSheet("foundation");
   }
 
+  function openWallsSideSheet() {
+    closeSheet("materials");
+    openSheet("walls");
+  }
+
+  function openWindowsSideSheet() {
+    closeSheet("materials");
+    openSheet("windows");
+  }
+
+  function openDoorsSideSheet() {
+    closeSheet("materials");
+    openSheet("doors");
+  }
+
   return (
     <ListGroup>
+      <ListItem onClick={openCommonSideSheet}>
+        <ListItemText>
+          Common
+        </ListItemText>
+        <ListItemIcon>
+          <ArrowRightIcon className={styles.listItemIcon} />
+        </ListItemIcon>
+      </ListItem>
+
       <ListItem onClick={openRoofSideSheet}>
         <ListItemText>
           Roof
+        </ListItemText>
+        <ListItemIcon>
+          <ArrowRightIcon className={styles.listItemIcon} />
+        </ListItemIcon>
+      </ListItem>
+
+      <ListItem onClick={openFoundationSideSheet}>
+        <ListItemText>
+          Foundation
         </ListItemText>
         <ListItemIcon>
           <ArrowRightIcon className={styles.listItemIcon} />
@@ -66,15 +79,6 @@ export default function MaterialsListGroup({
         </ListItemIcon>
       </ListItem>
 
-      <ListItem onClick={openFenceSideSheet}>
-        <ListItemText>
-          Fence
-        </ListItemText>
-        <ListItemIcon>
-          <ArrowRightIcon className={styles.listItemIcon} />
-        </ListItemIcon>
-      </ListItem>
-
       <ListItem onClick={openWindowsSideSheet}>
         <ListItemText>
           Windows
@@ -84,27 +88,9 @@ export default function MaterialsListGroup({
         </ListItemIcon>
       </ListItem>
 
-      <ListItem onClick={openCornersSideSheet}>
-        <ListItemText>
-          Corners
-        </ListItemText>
-        <ListItemIcon>
-          <ArrowRightIcon className={styles.listItemIcon} />
-        </ListItemIcon>
-      </ListItem>
-
       <ListItem onClick={openDoorsSideSheet}>
         <ListItemText>
           Doors
-        </ListItemText>
-        <ListItemIcon>
-          <ArrowRightIcon className={styles.listItemIcon} />
-        </ListItemIcon>
-      </ListItem>
-
-      <ListItem onClick={openFoundationSideSheet}>
-        <ListItemText>
-          Foundation
         </ListItemText>
         <ListItemIcon>
           <ArrowRightIcon className={styles.listItemIcon} />

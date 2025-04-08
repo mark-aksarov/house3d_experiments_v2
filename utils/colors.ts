@@ -25,6 +25,10 @@ const colors = [
   },
   {
     name: "brown",
+    hex: "#634a33",
+  },
+  {
+    name: "dark brown",
     hex: "#422f1e",
   },
   {

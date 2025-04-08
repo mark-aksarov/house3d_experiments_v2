@@ -4,11 +4,10 @@ import { useModels } from "@/context/ModelsContext";
 import useGetRoofMaterial from "./useGetRoofMaterial";
 import useGetRoadMaterial from "./useGetRoadMaterial";
 import useGetFenceMaterial from "./useGetFenceMaterial";
-import useGetGlassMaterial from "./useGetGlassMaterial";
 import useGetWallsMaterial from "./useGetWallsMaterial";
 import { useTextures } from "@/context/TexturesContext";
 import { disposeObject } from "@/utils/disposeResources";
-import useGetBlindsMaterial from "./useGetBlindsMaterial";
+import useGetBorderMaterial from "./useGetBorderMaterial";
 import useGetPavingMaterial from "./useGetPavingMaterial";
 import useGetCornersMaterial from "./useGetCornersMaterial";
 import { Dispatch, SetStateAction, useEffect } from "react";
@@ -19,6 +18,8 @@ import useGetGatesFrameMaterial from "./useGetGatesFrameMaterial";
 import useGetWindowSashMaterial from "./useGetWindowSashMaterial";
 import useGetFoundationMaterial from "./useGetFoundationMaterial";
 import useGetWindowFrameMaterial from "./useGetWindowFrameMaterial";
+import useGetWindowGlassMaterial from "./useGetWindowGlassMaterial";
+import useGetWindowBlindsMaterial from "./useGetWindowBlindsMaterial";
 import useGetDoorHandleAndHingesMaterial from "./useGetDoorHandleAndHingesMaterial";
 
 const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<boolean>>) => {
@@ -33,15 +34,16 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
   const getWallsMaterial = useGetWallsMaterial();
   const getRoofCoverMaterial = useGetRoofCoverMaterial();
   const getRoofMaterial = useGetRoofMaterial();
-  const getBlindsMaterial = useGetBlindsMaterial();
+  const getWindowBlindsMaterial = useGetWindowBlindsMaterial();
   const getWindowSashMaterial = useGetWindowSashMaterial();
   const getWindowFrameMaterial = useGetWindowFrameMaterial();
-  const getGlassMaterial = useGetGlassMaterial();
+  const getWindowGlassMaterial = useGetWindowGlassMaterial();
   const getCornersMaterial = useGetCornersMaterial();
   const getDoorPanelMaterial = useGetDoorPanelMaterial();
   const getDoorHandleAndHingesMaterial = useGetDoorHandleAndHingesMaterial();
   const getFenceMaterial = useGetFenceMaterial();
   const getFoundationMaterial = useGetFoundationMaterial();
+  const getBorderMaterial = useGetBorderMaterial();
 
   const isResourcesLoaded = modelsLoadStatus === "success" && texturesLoadStatus === "success";
 
@@ -89,10 +91,10 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
             object.material = getWindowFrameMaterial();
           }
           else if (object.name.startsWith("WindowBlinds")) {
-            object.material = getBlindsMaterial();
+            object.material = getWindowBlindsMaterial();
           }
           else if (object.name.startsWith("WindowGlass")) {
-            object.material = getGlassMaterial();
+            object.material = getWindowGlassMaterial();
           }
           else if (object.name.startsWith("Corners")) {
             object.material = getCornersMaterial();
@@ -108,6 +110,9 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
           }
           else if (object.name === "Foundation") {
             object.material = getFoundationMaterial();
+          }
+          else if (object.name === "Border") {
+            object.material = getBorderMaterial();
           }
         }
       });
@@ -135,14 +140,15 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
     getWallsMaterial,
     getRoofCoverMaterial,
     getRoofMaterial,
-    getBlindsMaterial,
+    getWindowBlindsMaterial,
     getWindowSashMaterial,
     getWindowFrameMaterial,
-    getGlassMaterial,
+    getWindowGlassMaterial,
     getCornersMaterial,
     getDoorPanelMaterial,
     getFenceMaterial,
-    getFoundationMaterial
+    getFoundationMaterial,
+    getBorderMaterial
   ]);
 }
 

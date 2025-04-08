@@ -7,27 +7,31 @@ import RoofSideSheet from '../RoofSideSheet';
 import SceneControls from '../SceneControls';
 import useSunLight from "@/hooks/useSunLight";
 import WallsSideSheet from '../WallsSideSheet';
-import FenceSideSheet from '../FenceSideSheet';
 import AppSideToolBar from '../AppSideToolBar';
+import CommonSideSheet from '../CommonSideSheet';
 import { Dispatch, SetStateAction } from "react";
+import RoofBottomSheet from '../RoofBottomSheet';
 import usePointLight from "@/hooks/usePointLight";
-import FenceBottomSheet from '../FenceBottomSheet';
+import WindowsSideSheet from '../WindowsSideSheet';
 import AppBottomToolBar from '../AppBottomToolBar';
 import WallsBottomSheet from '../WallsBottomSheet';
+import CommonBottomSheet from '../CommonBottomSheet';
 import SettingsSideSheet from '../SettingsSideSheet';
 import useAmbientLight from "@/hooks/useAmbientLight";
 import MaterialsSideSheet from '../MaterialsSideSheet';
+import WindowsBottomSheet from '../WindowsBottomSheet';
 import HouseModelSideSheet from "../HouseModelSideSheet";
 import AppearanceSideSheet from '../AppearanceSideSheet';
 import SettingsBottomSheet from '../SettingsBottomSheet';
+import FoundationSideSheet from '../FoundationSideSheet';
 import { useGetCanvasRef } from '@/context/CanvasContext';
 import CameraFovBottomSheet from '../CameraFovBottomSheet';
+import FoundationBottomSheet from '../FoundationBottomSheet';
 import AppearanceBottomSheet from '../AppearanceBottomSheet';
 import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
 import CameraMovingBottomSheet from '../CameraMovingBottomSheet';
-import RoofBottomSheet from '../RoofBottomSheet/RoofBottomSheet';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
 import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
@@ -74,16 +78,20 @@ export default function AppMain({
       <AmbientLightIntensityBottomSheet />
       <ShadowsResolutionBottomSheet />
       <RoofBottomSheet />
-      <FenceBottomSheet />
+      <CommonBottomSheet />
       <WallsBottomSheet />
+      <WindowsBottomSheet />
+      <FoundationBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
       <HouseModelSideSheet />
       <MaterialsSideSheet />
       <RoofSideSheet />
-      <FenceSideSheet />
+      <CommonSideSheet />
       <WallsSideSheet />
+      <WindowsSideSheet />
+      <FoundationSideSheet />
 
       <SceneControls />
 

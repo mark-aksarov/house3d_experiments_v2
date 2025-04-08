@@ -4,7 +4,7 @@ import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetRoofMaterial() {
-  const { roof: { color } } = useMaterials();
+  const { common: { color } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {

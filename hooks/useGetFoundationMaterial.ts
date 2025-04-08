@@ -1,7 +1,7 @@
-import { MeshPhysicalMaterial } from "three";
 import { useCallback, useMemo, useRef } from "react";
 import materialDefaults from "@/utils/materialDefaults";
 import { useMaterials } from "@/context/MaterialsContext";
+import { DoubleSide, MeshPhysicalMaterial, Vector2 } from "three";
 import useUpdateMaterialTextures from "./useUpdateMaterialTextures";
 import useUpdateMaterialRoughness from "./useUpdateMaterialRoughness";
 import useUpdateMaterialNormalScale from "./useUpdateMaterialNormalScale";
@@ -18,7 +18,8 @@ export default function useGetFoundationMaterial() {
 
     const material = new MeshPhysicalMaterial({
       aoMapIntensity: 1,
-      metalness: 0
+      metalness: 0,
+      side: DoubleSide
     });
 
     materialRef.current = material;
@@ -28,7 +29,13 @@ export default function useGetFoundationMaterial() {
 
   useUpdateMaterialTextures({ textureName, getMaterial });
 
-  const repeat = useMemo(() => materialDefaults.repeat[textureName], [textureName]);
+  const repeat = useMemo(() => {
+    if (textureName === "Asphalt030") {
+      return new Vector2(1, 1);
+    }
+
+    return materialDefaults.repeat[textureName]
+  }, [textureName]);
   useUpdateMaterialTexturesRepeat({ repeat, getMaterial });
 
   const roughness = useMemo(() => materialDefaults.roughness[textureName], [textureName]);

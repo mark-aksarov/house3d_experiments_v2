@@ -3,7 +3,7 @@ import { Vector2 } from "three";
 
 const materialDefaults: Record<"repeat" | "normalScale" | "roughness", Partial<Record<TextureName, any>>> = {
   repeat: {
-    Plaster003: new Vector2(5, 5),
+    Plaster003: new Vector2(2, 2),
     Concrete024: new Vector2(3, 3),
     RoofingTiles003: new Vector2(1, 1),
     RoofingTiles004: new Vector2(1, 1),
@@ -16,7 +16,7 @@ const materialDefaults: Record<"repeat" | "normalScale" | "roughness", Partial<R
     Asphalt006: new Vector2(5, 5),
     Bricks092: new Vector2(6.75, 6.75),
     Asphalt029B: new Vector2(3, 3),
-    Bricks075A: new Vector2(0.5, 0.75),
+    Bricks075A: new Vector2(0.75, 1.125),
     Asphalt031: new Vector2(1, 1),
     PavingStones108: new Vector2(5, 5),
     Metal046B: new Vector2(2, 2)

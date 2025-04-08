@@ -24,7 +24,7 @@ export default function useUpdateMaterialTextures({
       const map = textures[textureName]["color"];
 
       if (map) {
-        material.map = map;
+        material.map = map.clone();
         material.map.colorSpace = SRGBColorSpace;
         material.map.wrapS = RepeatWrapping;
         material.map.wrapT = RepeatWrapping;
@@ -33,7 +33,7 @@ export default function useUpdateMaterialTextures({
       const roughnessMap = textures[textureName]["roughness"];
 
       if (roughnessMap) {
-        material.roughnessMap = roughnessMap;
+        material.roughnessMap = roughnessMap.clone();
         material.roughnessMap.colorSpace = NoColorSpace;
         material.roughnessMap.wrapS = RepeatWrapping;
         material.roughnessMap.wrapT = RepeatWrapping;
@@ -42,7 +42,7 @@ export default function useUpdateMaterialTextures({
       const aoMap = textures[textureName]["ao"];
 
       if (aoMap) {
-        material.aoMap = aoMap;
+        material.aoMap = aoMap.clone();
         material.aoMap.colorSpace = NoColorSpace;
         material.aoMap.wrapS = RepeatWrapping;
         material.aoMap.wrapT = RepeatWrapping;
@@ -51,7 +51,7 @@ export default function useUpdateMaterialTextures({
       const normalMap = textures[textureName]["normal"];
 
       if (normalMap) {
-        material.normalMap = normalMap;
+        material.normalMap = normalMap.clone();
         material.normalMap.colorSpace = NoColorSpace;
         material.normalMap.wrapS = RepeatWrapping;
         material.normalMap.wrapT = RepeatWrapping;
@@ -60,7 +60,7 @@ export default function useUpdateMaterialTextures({
       const metalnessMap = textures[textureName]["metalness"];
 
       if (metalnessMap) {
-        material.metalnessMap = metalnessMap;
+        material.metalnessMap = metalnessMap.clone();
         material.metalnessMap.colorSpace = NoColorSpace;
         material.metalnessMap.wrapS = RepeatWrapping;
         material.metalnessMap.wrapT = RepeatWrapping;

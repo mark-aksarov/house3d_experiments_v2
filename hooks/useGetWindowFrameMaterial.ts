@@ -4,7 +4,7 @@ import { useMaterials } from "@/context/MaterialsContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
 export default function useGetWindowFrameMaterial() {
-  const { windows: { frameColor } } = useMaterials();
+  const { common: { color } } = useMaterials();
 
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
   const getMaterial = useCallback(() => {
@@ -19,7 +19,7 @@ export default function useGetWindowFrameMaterial() {
     return material;
   }, [])
 
-  useUpdateMaterialColor({ color: frameColor, getMaterial });
+  useUpdateMaterialColor({ color, getMaterial });
 
   return getMaterial;
 }

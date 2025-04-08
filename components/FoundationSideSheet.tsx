@@ -6,28 +6,28 @@ import BaseSheetHeader from "./BaseSheetHeader";
 import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
-import RoofCoverTextureToggleButtonGroup from "./RoofCoverTextureToggleButtonGroup";
+import FoundationTextureToggleButtonGroup from "./FoundationTextureToggleButtonGroup";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
 
-export default function RoofSideSheet() {
+export default function FoundationSideSheet() {
   const { setSelectedValue } = useAppSideToolBar();
   const sheetName = useOpenedSideSheetName();
   const closeSheet = useCloseSideSheet();
 
   function handleClose() {
-    closeSheet("roof");
+    closeSheet("foundation");
     setSelectedValue("");
   }
 
   return (
     <BaseSideSheet
-      data-testid="roof-side-sheet"
+      data-testid="foundation-side-sheet"
       restoreFocus={false}
-      open={sheetName === "roof"}
+      open={sheetName === "foundation"}
       onClose={handleClose}
     >
       <BaseSheetHeader prevSheetName="materials">
-        Roof
+        Foundation
       </BaseSheetHeader>
 
       <Divider />
@@ -37,9 +37,9 @@ export default function RoofSideSheet() {
           <ListItem>
             <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: '100%' }}>
               <Typography variant="header5">
-                Roof cover texture
+                Foundation texture
               </Typography>
-              <RoofCoverTextureToggleButtonGroup />
+              <FoundationTextureToggleButtonGroup />
             </Stack>
           </ListItem>
         </ListGroup>

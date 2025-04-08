@@ -6,28 +6,28 @@ import BaseSheetHeader from "./BaseSheetHeader";
 import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
-import FenceColorToggleButtonGroup from "./FenceColorToggleButtonGroup";
+import CommonColorToggleButtonGroup from "./CommonColorToggleButtonGroup";
 import { useCloseSideSheet, useOpenedSideSheetName } from "@/context/SideSheetsContext";
 
-export default function FenceSideSheet() {
+export default function CommonSideSheet() {
   const { setSelectedValue } = useAppSideToolBar();
   const sheetName = useOpenedSideSheetName();
   const closeSheet = useCloseSideSheet();
 
   function handleClose() {
-    closeSheet("fence");
+    closeSheet("common");
     setSelectedValue("");
   }
 
   return (
     <BaseSideSheet
-      data-testid="fence-side-sheet"
+      data-testid="common-side-sheet"
       restoreFocus={false}
-      open={sheetName === "fence"}
+      open={sheetName === "common"}
       onClose={handleClose}
     >
       <BaseSheetHeader prevSheetName="materials">
-        Fence
+        Common
       </BaseSheetHeader>
 
       <Divider />
@@ -37,9 +37,9 @@ export default function FenceSideSheet() {
           <ListItem>
             <Stack direction="vertical" spacing={5} alignItems="stretch">
               <Typography variant="header5">
-                Fence color
+                Color
               </Typography>
-              <FenceColorToggleButtonGroup />
+              <CommonColorToggleButtonGroup />
             </Stack>
           </ListItem>
         </ListGroup>

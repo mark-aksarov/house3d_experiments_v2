@@ -1,7 +1,11 @@
 import { useCallback, useRef } from "react";
 import { DoubleSide, MeshPhysicalMaterial } from "three";
+import { useMaterials } from "@/context/MaterialsContext";
+import useUpdateMaterialColor from "./useUpdateMaterialColor";
 
-const useGetBlindsMaterial = () => {
+const useGetWindowBlindsMaterial = () => {
+  const { windows: { blindsColor: color } } = useMaterials();
+
   const materialRef = useRef<MeshPhysicalMaterial | null>(null);
 
   const getMaterial = useCallback(() => {
@@ -10,7 +14,6 @@ const useGetBlindsMaterial = () => {
     }
 
     const material = new MeshPhysicalMaterial({
-      color: 0xffffff,
       side: DoubleSide
     });
 
@@ -19,7 +22,9 @@ const useGetBlindsMaterial = () => {
     return material;
   }, [])
 
+  useUpdateMaterialColor({ color, getMaterial });
+
   return getMaterial;
 }
 
-export default useGetBlindsMaterial;
+export default useGetWindowBlindsMaterial;
