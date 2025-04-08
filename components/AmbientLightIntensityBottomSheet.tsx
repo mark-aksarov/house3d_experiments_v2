@@ -1,8 +1,8 @@
 import Divider from "@/uikit/Divider";
 import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
+import BaseSheetHeaderProps from "./BaseSheetHeader";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
 import AmbientLightIntensityRangeInput from "./AmbientLightIntensityRangeInput";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
@@ -23,9 +23,9 @@ export default function AmbientLightIntensityBottomSheet() {
       open={sheetName === "ambientLightIntensity"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="settings">
+      <BaseSheetHeaderProps prevSheetName="settings">
         Ambient light intensity
-      </BaseBottomSheetHeader>
+      </BaseSheetHeaderProps>
 
       <Divider />
 

@@ -3,7 +3,7 @@ import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
 import ToneMappingRadioGroup from "./ToneMappingRadioGroup";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
+import BaseSheetHeader from "./BaseSheetHeader";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
 export default function ToneMappingBottomSheet() {
@@ -23,9 +23,9 @@ export default function ToneMappingBottomSheet() {
       open={sheetName === "toneMapping"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="settings">
+      <BaseSheetHeader prevSheetName="settings">
         Tone mapping
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

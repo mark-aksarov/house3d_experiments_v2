@@ -1,17 +1,16 @@
 import React from "react";
-import { SheetBody } from "../Sheet";
 import BottomSheet from "./BottomSheet";
 import { ButtonSize } from "uikit/Button";
-import BottomSheetHeader from "./BottomSheetHeader";
+import { SheetBody, SheetHeader } from "../Sheet";
 import { render, screen } from "@testing-library/react";
 
 describe("BottomSheet component", () => {
   it("renders the BottomSheet component", () => {
     render(
       <BottomSheet open={true} onClose={() => { }}>
-        <BottomSheetHeader>
+        <SheetHeader>
           Header Content
-        </BottomSheetHeader>
+        </SheetHeader>
         <SheetBody>
           Body Content
         </SheetBody>
@@ -28,9 +27,9 @@ describe("BottomSheet component", () => {
   it("should render back button when onBackButtonClick is given", () => {
     render(
       <BottomSheet open={true} onClose={() => { }}>
-        <BottomSheetHeader onBackButtonClick={() => { }}>
+        <SheetHeader onBackButtonClick={() => { }}>
           Header Content
-        </BottomSheetHeader>
+        </SheetHeader>
         <SheetBody>
           Body Content
         </SheetBody>
@@ -48,9 +47,9 @@ describe("BottomSheet component", () => {
     (size) => {
       render(
         <BottomSheet open={true} onClose={() => { }}>
-          <BottomSheetHeader closeButtonSize={size} onBackButtonClick={() => { }}>
+          <SheetHeader closeButtonSize={size} onBackButtonClick={() => { }}>
             Header Content
-          </BottomSheetHeader>
+          </SheetHeader>
           <SheetBody>
             Body Content
           </SheetBody>

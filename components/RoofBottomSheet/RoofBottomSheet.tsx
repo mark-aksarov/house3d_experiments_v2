@@ -7,7 +7,7 @@ import { Tab, TabPanel, Tabs } from "@/uikit/Tabs";
 import styles from './RoofBottomSheet.module.scss';
 import { useAppBottomToolBar } from "../AppBottomToolBar";
 import { CircleDotIcon, SunMediumIcon } from "lucide-react";
-import BaseBottomSheetHeader from "../BaseBottomSheetHeader";
+import BaseSheetHeader from "../BaseSheetHeader";
 import TabPanelContainer from "@/uikit/Tabs/TabPanelContainer";
 import RoofColorToggleButtonGroup from "../RoofColorToggleButtonGroup";
 import RoofCoverTextureToggleButtonGroup from "../RoofCoverTextureToggleButtonGroup";
@@ -31,9 +31,9 @@ export default function RoofBottomSheet() {
       open={sheetName === "roof"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="houseElements">
+      <BaseSheetHeader prevSheetName="materials">
         Roof
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

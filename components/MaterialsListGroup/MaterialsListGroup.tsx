@@ -41,11 +41,6 @@ export default function MaterialsListGroup({
     openSheet("doors");
   }
 
-  function openPavingSideSheet() {
-    closeSheet("materials");
-    openSheet("paving");
-  }
-
   function openFoundationSideSheet() {
     closeSheet("materials");
     openSheet("foundation");
@@ -101,15 +96,6 @@ export default function MaterialsListGroup({
       <ListItem onClick={openDoorsSideSheet}>
         <ListItemText>
           Doors
-        </ListItemText>
-        <ListItemIcon>
-          <ArrowRightIcon className={styles.listItemIcon} />
-        </ListItemIcon>
-      </ListItem>
-
-      <ListItem onClick={openPavingSideSheet}>
-        <ListItemText>
-          Paving
         </ListItemText>
         <ListItemIcon>
           <ArrowRightIcon className={styles.listItemIcon} />

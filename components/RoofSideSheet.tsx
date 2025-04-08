@@ -1,9 +1,8 @@
 import Stack from "@/uikit/Stack";
 import Divider from "@/uikit/Divider";
 import Typography from "@/uikit/Typography";
-import { SheetHeader } from "@/uikit/Sheet";
 import BaseSideSheet from "./BaseSideSheet";
-import styles from './RoofSideSheet.module.scss';
+import BaseSheetHeader from "./BaseSheetHeader";
 import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
@@ -28,9 +27,9 @@ export default function RoofSideSheet() {
       open={sheetName === "roof"}
       onClose={handleClose}
     >
-      <SheetHeader>
+      <BaseSheetHeader prevSheetName="materials">
         Roof
-      </SheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

@@ -1,8 +1,8 @@
 import Stack from "@/uikit/Stack";
 import Divider from "@/uikit/Divider";
 import Typography from "@/uikit/Typography";
-import { SheetHeader } from "@/uikit/Sheet";
 import BaseSideSheet from "./BaseSideSheet";
+import BaseSheetHeader from "./BaseSheetHeader";
 import { useAppSideToolBar } from "./AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import BaseSideSheetBody from "./BaseSideSheet/BaseSideSheetBody";
@@ -26,9 +26,9 @@ export default function WallsSideSheet() {
       open={sheetName === "walls"}
       onClose={handleClose}
     >
-      <SheetHeader>
+      <BaseSheetHeader prevSheetName="materials">
         Walls
-      </SheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

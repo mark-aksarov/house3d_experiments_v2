@@ -12,20 +12,6 @@
     border-top-right-radius: var(--space-5);
   }
 
-  .prevSheetButton {
-    &.small {
-      margin-left: calc(var(--space-2) * -1);
-    }
-
-    &.regular {
-      margin-left: calc(var(--space-3) * -1);
-    }
-
-    &.large {
-      margin-left: calc(var(--space-4) * -1);
-    }
-  }
-
   .bottomSheetAppear,
   .bottomSheetEnter {
     transform: translateY(100%);

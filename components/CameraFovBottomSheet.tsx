@@ -3,7 +3,7 @@ import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import CameraFovRangeInput from "./CameraFovRangeInput";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
+import BaseSheetHeader from "./BaseSheetHeader";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
 export default function CameraFovBottomSheet() {
@@ -23,9 +23,9 @@ export default function CameraFovBottomSheet() {
       open={sheetName === "cameraFov"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="settings">
+      <BaseSheetHeader prevSheetName="settings">
         Camera field of view
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

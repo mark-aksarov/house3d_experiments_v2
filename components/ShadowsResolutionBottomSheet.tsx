@@ -2,7 +2,7 @@ import Divider from "@/uikit/Divider";
 import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
+import BaseSheetHeader from "./BaseSheetHeader";
 import ShadowsResolutionRadioGroup from "./ShadowsResolutionRadioGroup";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
@@ -23,9 +23,9 @@ export default function ShadowsResolutionBottomSheet() {
       open={sheetName === "shadowsResolution"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="settings">
+      <BaseSheetHeader prevSheetName="settings">
         Shadows resolution
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

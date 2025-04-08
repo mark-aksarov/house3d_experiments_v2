@@ -4,7 +4,7 @@ import { BottomSheet } from "@/uikit/BottomSheet";
 import MaterialsListGroup from "../MaterialsListGroup";
 import styles from './MaterialsBottomSheet.module.scss';
 import { useAppBottomToolBar } from "../AppBottomToolBar";
-import BaseBottomSheetHeader from "../BaseBottomSheetHeader";
+import BaseSheetHeader from "../BaseSheetHeader";
 import { useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 import { useCloseBottomSheet, useOpenBottomSheet } from "@/context/BottomSheetsContext";
 
@@ -26,9 +26,9 @@ export default function MaterialsBottomSheet() {
       open={sheetName === "materials"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader>
+      <BaseSheetHeader>
         Materials
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

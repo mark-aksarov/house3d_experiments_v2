@@ -1,8 +1,8 @@
 import Divider from "@/uikit/Divider";
 import { SheetBody } from "@/uikit/Sheet";
+import BaseSheetHeader from "./BaseSheetHeader";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
 import FenceColorToggleButtonGroup from "./FenceColorToggleButtonGroup";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
@@ -23,9 +23,9 @@ export default function FenceBottomSheet() {
       open={sheetName === "fence"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="houseElements">
+      <BaseSheetHeader prevSheetName="materials">
         Fence
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 

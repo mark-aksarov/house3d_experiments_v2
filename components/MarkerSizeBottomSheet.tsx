@@ -3,7 +3,7 @@ import { SheetBody } from "@/uikit/Sheet";
 import { BottomSheet } from "@/uikit/BottomSheet";
 import { useAppBottomToolBar } from "./AppBottomToolBar";
 import MarkerSizeRadioGroup from "./MarkerSizeRadioGroup";
-import BaseBottomSheetHeader from "./BaseBottomSheetHeader";
+import BaseSheetHeader from "./BaseSheetHeader";
 import { useCloseBottomSheet, useOpenedBottomSheetName } from "@/context/BottomSheetsContext";
 
 export default function MarkerSizeBottomSheet() {
@@ -23,9 +23,9 @@ export default function MarkerSizeBottomSheet() {
       open={sheetName === "markerSize"}
       onClose={handleClose}
     >
-      <BaseBottomSheetHeader prevSheetName="appearance">
+      <BaseSheetHeader prevSheetName="appearance">
         Marker size
-      </BaseBottomSheetHeader>
+      </BaseSheetHeader>
 
       <Divider />
 
