@@ -2,6 +2,7 @@
 
 import App from '@/components/App';
 import React, { useRef } from 'react';
+import { UndoProvider } from '@/context/UndoContext';
 import { ThreeProvider } from '@/context/ThreeContext';
 import { CanvasContext } from '@/context/CanvasContext';
 import { ModelsProvider } from '@/context/ModelsContext';
@@ -21,29 +22,31 @@ export default function House3D() {
   return (
     <>
       <NarrowViewportMessage />
-      <ModelsProvider>
-        <TexturesProvider>
-          <AppSideToolBarProvider>
-            <AppBottomToolBarProvider>
-              <SideSheetsProvider>
-                <BottomSheetsProvider>
-                  <CanvasContext.Provider value={canvasRef}>
-                    <ThreeProvider>
-                      <OrbitControlsProvider>
-                        <SettingsProvider>
-                          <MaterialsProvider>
-                            <App />
-                          </MaterialsProvider>
-                        </SettingsProvider>
-                      </OrbitControlsProvider>
-                    </ThreeProvider>
-                  </CanvasContext.Provider>
-                </BottomSheetsProvider>
-              </SideSheetsProvider>
-            </AppBottomToolBarProvider>
-          </AppSideToolBarProvider>
-        </TexturesProvider>
-      </ModelsProvider>
+      <UndoProvider>
+        <ModelsProvider>
+          <TexturesProvider>
+            <AppSideToolBarProvider>
+              <AppBottomToolBarProvider>
+                <SideSheetsProvider>
+                  <BottomSheetsProvider>
+                    <CanvasContext.Provider value={canvasRef}>
+                      <ThreeProvider>
+                        <OrbitControlsProvider>
+                          <SettingsProvider>
+                            <MaterialsProvider>
+                              <App />
+                            </MaterialsProvider>
+                          </SettingsProvider>
+                        </OrbitControlsProvider>
+                      </ThreeProvider>
+                    </CanvasContext.Provider>
+                  </BottomSheetsProvider>
+                </SideSheetsProvider>
+              </AppBottomToolBarProvider>
+            </AppSideToolBarProvider>
+          </TexturesProvider>
+        </ModelsProvider>
+      </UndoProvider>
     </>
   )
 }

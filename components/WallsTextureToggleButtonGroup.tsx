@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { useUndo } from "@/context/UndoContext";
 import { TextureName } from "@/context/TexturesContext";
 import TextureToggleButtonGroup from "./TextureToggleButtonGroup";
 import { useMaterials, useMaterialsDispatch } from "@/context/MaterialsContext";
@@ -52,13 +53,23 @@ const data: Array<{ src: StaticImageData; value: TextureName; label: string }> =
 export default function WallsTextureToggleButtonGroup() {
   const { walls: { textureName } } = useMaterials();
   const dispatch = useMaterialsDispatch();
+  const { addAction } = useUndo();
+
+  function handleTextureChange(newTextureName: TextureName) {
+    dispatch({ type: "wallsTextureChanged", payload: newTextureName });
+
+    addAction(
+      () => dispatch({ type: "wallsTextureChanged", payload: textureName }),
+      () => dispatch({ type: "wallsTextureChanged", payload: newTextureName })
+    )
+  }
 
   return (
     <TextureToggleButtonGroup
       data-testid="walls-texture-toggle-button-group"
       data={data}
       textureName={textureName}
-      onChange={(textureName) => dispatch({ type: "wallsTextureChanged", payload: textureName })}
+      onChange={handleTextureChange}
     />
   )
 }

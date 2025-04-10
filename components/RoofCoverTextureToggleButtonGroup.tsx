@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { useUndo } from "@/context/UndoContext";
 import { TextureName } from "@/context/TexturesContext";
 import TextureToggleButtonGroup from "./TextureToggleButtonGroup";
 import { useMaterials, useMaterialsDispatch } from "@/context/MaterialsContext";
@@ -52,13 +53,23 @@ const data: Array<{ src: StaticImageData; value: TextureName; label: string }> =
 export default function RoofCoverTextureToggleButtonGroup() {
   const { roof: { coverTextureName } } = useMaterials();
   const dispatch = useMaterialsDispatch();
+  const { addAction } = useUndo();
+
+  function handleTextureChange(newTextureName: TextureName) {
+    dispatch({ type: "roofCoverTextureChanged", payload: newTextureName });
+
+    addAction(
+      () => dispatch({ type: "roofCoverTextureChanged", payload: coverTextureName }),
+      () => dispatch({ type: "roofCoverTextureChanged", payload: newTextureName })
+    )
+  }
 
   return (
     <TextureToggleButtonGroup
       data-testid="roof-cover-texture-toggle-button-group"
       data={data}
       textureName={coverTextureName}
-      onChange={(textureName) => dispatch({ type: "roofCoverTextureChanged", payload: textureName })}
+      onChange={handleTextureChange}
     />
   )
 }

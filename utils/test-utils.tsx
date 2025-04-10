@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { render } from "@testing-library/react";
 import { ThreeContext } from "context/ThreeContext";
+import { UndoProvider } from '@/context/UndoContext';
 import { ThemeProvider } from "context/ThemeContext";
 import { CanvasContext } from "context/CanvasContext";
 import { ToastsProvider } from "context/ToastsContext";
@@ -40,35 +41,37 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
     <ThemeProvider>
       <ToastsProvider>
         <NarrowViewportMessage />
-        <ModelsProvider>
-          <TexturesProvider>
-            <AppSideToolBarProvider>
-              <AppBottomToolBarProvider>
-                <SideSheetsProvider>
-                  <BottomSheetsProvider>
-                    <CanvasContext.Provider value={canvasRef}>
-                      <ThreeContext.Provider value={{
-                        render: mockedRenderer.render,
-                        getCamera: () => mockedCamera,
-                        getScene: () => scene,
-                        getRenderer: () => mockedRenderer,
-                        isFirstRenderComplete: true
-                      }}>
-                        <OrbitControlsProvider>
-                          <SettingsProvider>
-                            <MaterialsProvider>
-                              {children}
-                            </MaterialsProvider>
-                          </SettingsProvider>
-                        </OrbitControlsProvider>
-                      </ThreeContext.Provider>
-                    </CanvasContext.Provider>
-                  </BottomSheetsProvider>
-                </SideSheetsProvider>
-              </AppBottomToolBarProvider>
-            </AppSideToolBarProvider>
-          </TexturesProvider>
-        </ModelsProvider>
+        <UndoProvider>
+          <ModelsProvider>
+            <TexturesProvider>
+              <AppSideToolBarProvider>
+                <AppBottomToolBarProvider>
+                  <SideSheetsProvider>
+                    <BottomSheetsProvider>
+                      <CanvasContext.Provider value={canvasRef}>
+                        <ThreeContext.Provider value={{
+                          render: mockedRenderer.render,
+                          getCamera: () => mockedCamera,
+                          getScene: () => scene,
+                          getRenderer: () => mockedRenderer,
+                          isFirstRenderComplete: true
+                        }}>
+                          <OrbitControlsProvider>
+                            <SettingsProvider>
+                              <MaterialsProvider>
+                                {children}
+                              </MaterialsProvider>
+                            </SettingsProvider>
+                          </OrbitControlsProvider>
+                        </ThreeContext.Provider>
+                      </CanvasContext.Provider>
+                    </BottomSheetsProvider>
+                  </SideSheetsProvider>
+                </AppBottomToolBarProvider>
+              </AppSideToolBarProvider>
+            </TexturesProvider>
+          </ModelsProvider>
+        </UndoProvider>
       </ToastsProvider>
     </ThemeProvider>
   );

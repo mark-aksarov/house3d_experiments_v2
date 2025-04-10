@@ -10,7 +10,8 @@ import styles from './AppHeader.module.scss';
 import { Dispatch, SetStateAction } from "react";
 import MenuItemButton from "@/uikit/Menu/MenuItemButton";
 import Menu, { MenuButton, MenuItem, MenuList } from "@/uikit/Menu";
-import { AlignJustifyIcon, CircleHelpIcon, GithubIcon } from "lucide-react";
+import { AlignJustifyIcon, CircleHelpIcon, GithubIcon, Redo2Icon, Undo2Icon } from "lucide-react";
+import { useUndo } from "@/context/UndoContext";
 
 interface AppHeaderProps {
   setAboutSheetOpen?: Dispatch<SetStateAction<boolean>>;
@@ -21,6 +22,8 @@ export default function AppHeader({
   setAboutSheetOpen,
   setAboutModalOpen
 }: AppHeaderProps) {
+  const { undo, redo, canUndo, canRedo } = useUndo();
+
   return (
     <>
       <header className={styles.header}>
@@ -29,9 +32,28 @@ export default function AppHeader({
           <Typography variant="header4">
             House 3D
           </Typography>
+
+          <Stack spacing={3} className={styles.desktopButtons}>
+            <IconButton
+              variant="ghost"
+              color="neutral"
+              size="regular"
+              icon={<Undo2Icon />}
+              onClick={undo}
+              disabled={!canUndo}
+            />
+            <IconButton
+              variant="ghost"
+              color="neutral"
+              size="regular"
+              icon={<Redo2Icon />}
+              onClick={redo}
+              disabled={!canRedo}
+            />
+          </Stack>
         </Stack>
 
-        <Stack spacing={3} className={styles.buttonsGrid}>
+        <Stack spacing={3} className={styles.desktopButtons}>
           <Button
             as={Link}
             variant="ghost"
@@ -79,6 +101,28 @@ export default function AppHeader({
                 href="https://github.com/MarkAk91/house3d"
               >
                 Github
+              </MenuItemButton>
+            </MenuItem>
+            <MenuItem>
+              <MenuItemButton
+                data-testid="undo-menu-item-button"
+                icon={<Undo2Icon />}
+                onClick={undo}
+                disabled={!canUndo}
+                closeMenuOnClick={false}
+              >
+                Undo
+              </MenuItemButton>
+            </MenuItem>
+            <MenuItem>
+              <MenuItemButton
+                data-testid="redo-menu-item-button"
+                icon={<Redo2Icon />}
+                onClick={redo}
+                disabled={!canRedo}
+                closeMenuOnClick={false}
+              >
+                Redo
               </MenuItemButton>
             </MenuItem>
             {

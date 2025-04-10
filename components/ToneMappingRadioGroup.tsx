@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Radio from "@/uikit/Radio";
 import Stack from "@/uikit/Stack";
-import { useState } from "react";
 import { ToneMapping } from "three";
+import { useUndo } from "@/context/UndoContext";
 import RadioGroup from "@/uikit/Radio/RadioGroup";
 import { useThree } from "@/context/ThreeContext";
 
@@ -17,12 +18,21 @@ const toneMappingOptions = [
 export default function ToneMappingRadioGroup() {
   const { getRenderer, render } = useThree();
   const [checkedName, setCheckedName] = useState(getRenderer().toneMapping);
+  const { addAction } = useUndo();
 
   function changeToneMapping(value: number) {
-    const renderer = getRenderer();
-    renderer.toneMapping = value as ToneMapping;
-    setCheckedName(value as ToneMapping);
-    render();
+    function action(value: number) {
+      const renderer = getRenderer();
+      renderer.toneMapping = value as ToneMapping;
+      setCheckedName(value as ToneMapping);
+      render();
+    }
+    action(value);
+
+    addAction(
+      () => action(checkedName),
+      () => action(value),
+    )
   }
 
   return (

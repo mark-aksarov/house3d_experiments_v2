@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RangeInput from "@/uikit/RangeInput";
 import { useThree } from "@/context/ThreeContext";
+import UndoableRangeInput from "./UndoableRangeInput";
 import { useCameraFovRange } from "@/hooks/useCameraFovRange";
 
 export default function CameraFovRangeInput() {
@@ -17,10 +17,10 @@ export default function CameraFovRangeInput() {
   }
 
   return (
-    <RangeInput
+    <UndoableRangeInput
       data-testid="camera-fov-range-input"
       value={value}
-      onChange={(e) => changeFov(parseFloat(e.target.value))}
+      onChange={changeFov}
       min={fovRange[0]}
       max={fovRange[1]}
       step={1}

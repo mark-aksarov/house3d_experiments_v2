@@ -8,7 +8,7 @@ import { InputHTMLAttributes, useCallback, useEffect, useLayoutEffect, useRef } 
 
 export type RangeInputSize = 'large' | 'regular' | 'small';
 
-interface RangeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+export interface RangeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: RangeInputSize;
   value: number;
   min?: number;

@@ -31,7 +31,7 @@
   }
 }
 
-.buttonsGrid {
+.desktopButtons {
   @include mixins.breakpoint-less-than(md) {
     display: none;
   }

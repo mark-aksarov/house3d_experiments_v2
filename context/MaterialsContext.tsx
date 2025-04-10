@@ -2,6 +2,7 @@ import { useImmerReducer } from 'use-immer';
 import { ColorRepresentation } from 'three';
 import { TextureName } from './TexturesContext';
 import { createContext, useContext, ReactNode, Dispatch } from 'react';
+import { useUndo } from './UndoContext';
 
 type MaterialsState = {
   common: {

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RangeInput from "@/uikit/RangeInput";
 import { useThree } from "@/context/ThreeContext";
+import UndoableRangeInput from "./UndoableRangeInput";
 import { useToneMappingExposureRange } from "@/hooks/useToneMappingExposureRange";
 
 export default function ToneMappingExposureRangeInput() {
@@ -16,10 +16,10 @@ export default function ToneMappingExposureRangeInput() {
   }
 
   return (
-    <RangeInput
+    <UndoableRangeInput
       data-testid="tone-mapping-exposure-range-input"
       value={value}
-      onChange={(e) => changeToneMappingExposure(parseFloat(e.target.value))}
+      onChange={changeToneMappingExposure}
       min={range[0]}
       max={range[1]}
       step={0.05}
