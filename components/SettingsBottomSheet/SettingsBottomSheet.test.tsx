@@ -19,10 +19,12 @@ describe("SettingsBottomSheet", () => {
     expect(screen.getByRole("tab", { name: /tone mapping/i })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /toasts/i })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /camera/i })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /light/i })).toBeInTheDocument();
 
     expect(screen.getByRole("tabpanel", { name: /tone mapping/i })).not.toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /toasts/i })).toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /camera/i })).toHaveClass("tabPanelHidden");
+    expect(screen.getByRole("tabpanel", { name: /light/i })).toHaveClass("tabPanelHidden");
   });
 
   test("switches tabs correctly", () => {
@@ -34,12 +36,14 @@ describe("SettingsBottomSheet", () => {
     expect(screen.getByRole("tabpanel", { name: /tone mapping/i })).not.toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /toasts/i })).toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /camera/i })).toHaveClass("tabPanelHidden");
+    expect(screen.getByRole("tabpanel", { name: /light/i })).toHaveClass("tabPanelHidden");
 
     fireEvent.click(screen.getByRole("tab", { name: /toasts/i }));
 
     expect(screen.getByRole("tabpanel", { name: /tone mapping/i })).toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /toasts/i })).not.toHaveClass("tabPanelHidden");
     expect(screen.getByRole("tabpanel", { name: /camera/i })).toHaveClass("tabPanelHidden");
+    expect(screen.getByRole("tabpanel", { name: /light/i })).toHaveClass("tabPanelHidden");
   });
 
   test("should open the tone mapping bottom sheet", () => {
@@ -72,13 +76,23 @@ describe("SettingsBottomSheet", () => {
     expect(screen.getByTestId("camera-fov-bottom-sheet")).toBeInTheDocument();
   });
 
-  test("should open the camera moving bottom sheet", () => {
+  test("should open the ambient light intensity bottom sheet", () => {
     render(<App />);
 
     const settingsButton = screen.getByRole("tab", { name: /settings/i });
     fireEvent.click(settingsButton);
 
-    fireEvent.click(screen.getByRole("button", { name: /moving of camera/i }));
-    expect(screen.getByTestId("camera-moving-bottom-sheet")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /ambient light intensity/i }));
+    expect(screen.getByTestId("ambient-light-intensity-bottom-sheet")).toBeInTheDocument();
+  });
+
+  test("should open the shadows resolution bottom sheet", () => {
+    render(<App />);
+
+    const settingsButton = screen.getByRole("tab", { name: /settings/i });
+    fireEvent.click(settingsButton);
+
+    fireEvent.click(screen.getByRole("button", { name: /shadows resolution/i }));
+    expect(screen.getByTestId("shadows-resolution-bottom-sheet")).toBeInTheDocument();
   });
 });

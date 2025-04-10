@@ -12,7 +12,7 @@ export default function ShadowsResolutionRadioGroup() {
     <Stack direction="vertical" spacing={4}>
       <RadioGroup
         value={shadowsResolution}
-        name="cameraMoving"
+        name="shadowsResolution"
         onChange={(value) => setShadowsResolution(value as ShadowsResolution)}
       >
         {shadowResolutions.map((value) => (

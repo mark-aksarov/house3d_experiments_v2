@@ -30,7 +30,7 @@ export default function ToneMappingRadioGroup() {
       <RadioGroup
         value={checkedName}
         name="toneMapping"
-        onChange={changeToneMapping}
+        onChange={(value) => changeToneMapping(value as number)}
       >
         {toneMappingOptions.map(({ value, label }) => (
           <Radio id={value.toString()} key={value} value={value} label={label} />

@@ -8,8 +8,8 @@ import styles from './SettingsSideSheet.module.scss';
 import { useAppSideToolBar } from "../AppSideToolBar";
 import ListGroup, { ListItem } from "@/uikit/ListGroup";
 import CameraFovRangeInput from "../CameraFovRangeInput";
+import ShadowsEnabledSwitch from "../ShadowsEnabledSwitch";
 import ToneMappingRadioGroup from "../ToneMappingRadioGroup";
-import CameraMovingRadioGroup from "../CameraMovingRadioGroup";
 import BaseSideSheetBody from "../BaseSideSheet/BaseSideSheetBody";
 import ToneMappingRangeInput from "../ToneMappingExposureRangeInput";
 import ShadowsResolutionRadioGroup from "../ShadowsResolutionRadioGroup";
@@ -84,15 +84,6 @@ export default function SettingsSideSheet() {
           </ListItem>
 
           <ListItem>
-            <Stack direction="vertical" spacing={5} alignItems="stretch">
-              <Typography variant="header5">
-                Moving of camera
-              </Typography>
-              <CameraMovingRadioGroup />
-            </Stack>
-          </ListItem>
-
-          <ListItem>
             <Stack direction="vertical" spacing={5} alignItems="stretch" style={{ width: "100%" }}>
               <Typography variant="header5">
                 Shadows enabled
@@ -102,7 +93,7 @@ export default function SettingsSideSheet() {
                 <Typography variant="body3">
                   Shadows enabled
                 </Typography>
-                <ShowToastsSwitch />
+                <ShadowsEnabledSwitch />
               </Stack>
             </Stack>
           </ListItem>

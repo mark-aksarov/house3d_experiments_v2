@@ -155,15 +155,6 @@ export default function SettingsBottomSheet() {
                   <ArrowRightIcon className={styles.listItemIcon} />
                 </ListItemIcon>
               </ListItem>
-
-              <ListItem onClick={openCameraMovingBottomSheet}>
-                <ListItemText>
-                  Moving of camera
-                </ListItemText>
-                <ListItemIcon>
-                  <ArrowRightIcon className={styles.listItemIcon} />
-                </ListItemIcon>
-              </ListItem>
             </ListGroup>
           </TabPanel>
 

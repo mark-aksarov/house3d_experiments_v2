@@ -7,17 +7,15 @@ export type ShadowsResolution = "1024x1024" | "2048x2048" | "4096x4096";
 export interface SettingsContext {
   toneMapping: ToneMapping;
   toneMappingExposure: number,
-  showNotifications: boolean,
+  showToasts: boolean,
   cameraFieldOfView: number,
-  movingOfCamera: MovingOfCamera,
   ambientLightIntensity: number,
   shadowsEnabled: boolean,
   shadowsResolution: ShadowsResolution,
   setToneMapping: Dispatch<SetStateAction<ToneMapping>>,
   setToneMappingExposure: Dispatch<SetStateAction<number>>,
-  setShowNotifications: Dispatch<SetStateAction<boolean>>,
+  setShowToasts: Dispatch<SetStateAction<boolean>>,
   setCameraFieldOfView: Dispatch<SetStateAction<number>>,
-  setMovingOfCamera: Dispatch<SetStateAction<MovingOfCamera>>,
   setAmbientLightIntensity: Dispatch<SetStateAction<number>>,
   setShadowsEnabled: Dispatch<SetStateAction<boolean>>,
   setShadowsResolution: Dispatch<SetStateAction<ShadowsResolution>>,
@@ -28,9 +26,8 @@ export const SettingsContext = createContext<SettingsContext | null>(null);
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [toneMapping, setToneMapping] = useState<ToneMapping>(ReinhardToneMapping);
   const [toneMappingExposure, setToneMappingExposure] = useState(1);
-  const [showNotifications, setShowNotifications] = useState(true);
+  const [showToasts, setShowToasts] = useState(true);
   const [cameraFieldOfView, setCameraFieldOfView] = useState(75);
-  const [movingOfCamera, setMovingOfCamera] = useState<MovingOfCamera>("Immediately");
   const [ambientLightIntensity, setAmbientLightIntensity] = useState(1);
   const [shadowsEnabled, setShadowsEnabled] = useState(true);
   const [shadowsResolution, setShadowsResolution] = useState<ShadowsResolution>("4096x4096");
@@ -38,26 +35,23 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   const contextValue = useMemo(() => ({
     toneMapping,
     toneMappingExposure,
-    showNotifications,
+    showToasts,
     cameraFieldOfView,
-    movingOfCamera,
     ambientLightIntensity,
     shadowsEnabled,
     shadowsResolution,
     setToneMapping,
     setToneMappingExposure,
-    setShowNotifications,
+    setShowToasts,
     setCameraFieldOfView,
-    setMovingOfCamera,
     setAmbientLightIntensity,
     setShadowsEnabled,
     setShadowsResolution
   }), [
     toneMapping,
     toneMappingExposure,
-    showNotifications,
+    showToasts,
     cameraFieldOfView,
-    movingOfCamera,
     ambientLightIntensity,
     shadowsEnabled,
     shadowsResolution,

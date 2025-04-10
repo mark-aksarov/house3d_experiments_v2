@@ -50,7 +50,7 @@ const initialState: MaterialsState = {
     color: "#ffffff"
   },
   foundation: {
-    textureName: 'Asphalt030'
+    textureName: 'Asphalt031'
   },
   walls: {
     textureName: 'Bricks092'
