@@ -11,15 +11,15 @@ export default function useWelcomeToast({
 }: UseWelcomeToastProps) {
   const { addToast, closeToast } = useToasts();
   const isMobileOrTablet = useIsMobileOrTablet();
-  const isWelcomeToastShownRef = useRef(false);
+  const isToastShownRef = useRef(false);
 
   useEffect(() => {
-    if (!showLoadingOverlay && !isWelcomeToastShownRef.current) {
+    if (!showLoadingOverlay && !isToastShownRef.current) {
       const toastSize = isMobileOrTablet ? 'small' : 'regular';
 
       const timeoutId = setTimeout(
         () => {
-          isWelcomeToastShownRef.current = true;
+          isToastShownRef.current = true;
 
           addToast({
             id: "welcome",

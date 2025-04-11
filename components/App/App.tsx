@@ -1,15 +1,13 @@
-
 import AppHeader from '../AppHeader';
 import styles from './App.module.scss';
 import AppMain from '../AppMain/AppMain';
 import LoadingOverlay from '../LoadingOverlay';
+import useUndoToast from '@/hooks/useUndoToast';
 import React, { useEffect, useState } from 'react';
 import { useModels } from '@/context/ModelsContext';
 import useResizeWindow from '@/hooks/useResizeWindow';
 import useWelcomeToast from '@/hooks/useWelcomeToast';
 import { useTextures } from '@/context/TexturesContext';
-import useUpdateCameraFov from '@/hooks/useUpdateCameraFov';
-import useUpdateToneMappingExposure from '@/hooks/useUpdateToneMappingExposure';
 
 export default function App() {
   const [isFirstModelRenderingComplete, setIsFirstModelRenderingComplete] = useState(false);
@@ -24,6 +22,7 @@ export default function App() {
 
   useResizeWindow();
   useWelcomeToast({ showLoadingOverlay });
+  useUndoToast({ showLoadingOverlay });
 
   useEffect(() => {
     if (texturesLoadStatus === "error" || modelsLoadStatus === "error") {
