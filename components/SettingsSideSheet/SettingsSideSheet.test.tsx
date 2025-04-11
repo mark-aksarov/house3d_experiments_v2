@@ -14,8 +14,8 @@ describe("SettingsSideSheet", () => {
     const settingsButton = screen.getByRole("button", { name: /settings/i });
     fireEvent.click(settingsButton);
 
-    expect(screen.getByRole("radio", { name: /linear/i })).toBeChecked();
-    expect(screen.getByRole("radio", { name: /reinhard/i })).not.toBeChecked();
+    expect(screen.getByRole("radio", { name: /linear/i })).not.toBeChecked();
+    expect(screen.getByRole("radio", { name: /reinhard/i })).toBeChecked();
     expect(screen.getByRole("radio", { name: /cineon/i })).not.toBeChecked();
     expect(screen.getByRole("radio", { name: /aces filmic/i })).not.toBeChecked();
     expect(screen.getByRole("radio", { name: /agx/i })).not.toBeChecked();
@@ -36,7 +36,7 @@ describe("SettingsSideSheet", () => {
     const settingsButton = screen.getByRole("button", { name: /settings/i });
     fireEvent.click(settingsButton);
 
-    const reinhardOption = screen.getByRole("radio", { name: /reinhard/i });
+    const reinhardOption = screen.getByRole("radio", { name: /linear/i });
 
     expect(reinhardOption).not.toBeChecked();
     fireEvent.click(reinhardOption);

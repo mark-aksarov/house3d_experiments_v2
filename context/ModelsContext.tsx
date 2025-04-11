@@ -20,7 +20,7 @@ export interface State {
   status: Status;
 }
 
-type Action =
+export type Action =
   | { type: 'load'; models: ModelCollection }
   | { type: 'error' }
   | { type: 'pending' }

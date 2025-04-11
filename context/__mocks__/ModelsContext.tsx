@@ -1,6 +1,6 @@
 import { Mesh, Object3D } from 'three';
-import React, { createContext, ReactNode, useContext } from 'react';
-import { ModelCollection, State } from '../ModelsContext';
+import React, { createContext, Dispatch, ReactNode, useContext } from 'react';
+import { Action, ModelCollection, State } from '../ModelsContext';
 
 const createMesh = (name: string) => {
   const mesh = new Mesh();
@@ -120,9 +120,12 @@ house.add(roof, walls, foundation, columns, porchRailings, windows, doors, gates
 
 const mockModels: ModelCollection = {
   House1: house,
+  House2: house,
 };
 
+export const mockedDispatch = jest.fn();
 export const ModelsContext = createContext<State | null>(null);
+export const ModelsDispatchContext = createContext<(() => void) | null>(null);
 
 export function ModelsProvider({ children }: { children: ReactNode }) {
   const mockState: State = {
@@ -132,7 +135,9 @@ export function ModelsProvider({ children }: { children: ReactNode }) {
 
   return (
     <ModelsContext.Provider value={mockState}>
-      {children}
+      <ModelsDispatchContext.Provider value={mockedDispatch}>
+        {children}
+      </ModelsDispatchContext.Provider>
     </ModelsContext.Provider>
   );
 }
@@ -142,6 +147,14 @@ export const useModels = () => {
   const context = useContext(ModelsContext);
   if (!context) {
     throw new Error('useModels must be used within a ModelsContextProvider');
+  }
+  return context;
+};
+
+export const useModelsDispatch = () => {
+  const context = useContext(ModelsDispatchContext);
+  if (!context) {
+    throw new Error('useModelsDispatch must be used within a ModelsContextProvider');
   }
   return context;
 };
