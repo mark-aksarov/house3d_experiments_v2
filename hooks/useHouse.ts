@@ -48,7 +48,7 @@ const useHouse = (setIsFirstModelRenderingComplete: Dispatch<SetStateAction<bool
   const isResourcesLoaded = modelsLoadStatus === "success" && texturesLoadStatus === "success";
 
   useEffect(() => {
-    if (isResourcesLoaded) {
+    if (isResourcesLoaded && selectedModelName) {
       const scene = getScene();
       const renderer = getRenderer();
       const camera = getCamera();

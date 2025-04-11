@@ -27,7 +27,7 @@ export const OrbitControlsProvider = ({
     const controls = new OrbitControls(camera, renderer.domElement);
 
     controls.minDistance = 20;
-    controls.maxDistance = 40;
+    controls.maxDistance = 30;
     controls.minPolarAngle = MathUtils.degToRad(10);
     controls.maxPolarAngle = MathUtils.degToRad(85);
     controls.target.set(0, 4, 0);
