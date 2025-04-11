@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 import { MeshPhysicalMaterial } from "three";
-import { useTheme } from "@/context/ThemeContext";
 import useUpdateMaterialColor from "./useUpdateMaterialColor";
+import { getSystemTheme, useTheme } from "@/context/ThemeContext";
 
 const useGetGroundMaterial = () => {
   const { theme } = useTheme();
@@ -59,7 +59,12 @@ const useGetGroundMaterial = () => {
     return material;
   }, [])
 
-  useUpdateMaterialColor({ color: theme === "dark" ? 0x343940 : 0xccb9ab, getMaterial });
+  useUpdateMaterialColor({
+    color: theme === "dark" || (!theme && getSystemTheme() === "dark")
+      ? 0x343940
+      : 0xccb9ab,
+    getMaterial
+  });
 
   return getMaterial;
 }

@@ -1,9 +1,9 @@
 import { DirectionalLight } from "three";
 import { useEffect, useRef } from "react";
-import { useTheme } from "@/context/ThemeContext";
 import { useThree } from "@/context/ThreeContext";
 import { useSettings } from "@/context/SettingsContext";
 import { disposeObject } from "@/utils/disposeResources";
+import { getSystemTheme, useTheme } from "@/context/ThemeContext";
 
 export default function useSunLight() {
   const objectRef = useRef<DirectionalLight | null>(null);
@@ -39,7 +39,7 @@ export default function useSunLight() {
   //update intensity
   useEffect(() => {
     if (objectRef.current) {
-      objectRef.current.intensity = theme === 'light' ? 6 : 4;
+      objectRef.current.intensity = theme === "dark" || (!theme && getSystemTheme() === "dark") ? 4 : 6;
       render();
     }
   }, [theme, render])

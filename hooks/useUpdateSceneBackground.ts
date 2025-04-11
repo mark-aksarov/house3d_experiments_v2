@@ -1,7 +1,7 @@
 import { Color } from 'three';
 import { useEffect } from 'react';
-import { useTheme } from '@/context/ThemeContext';
 import { useThree } from '@/context/ThreeContext';
+import { getSystemTheme, useTheme } from '@/context/ThemeContext';
 
 const useUpdateSceneBackground = () => {
   const { theme } = useTheme();
@@ -10,7 +10,7 @@ const useUpdateSceneBackground = () => {
   useEffect(() => {
     const scene = getScene();
 
-    if (theme === "dark") {
+    if (theme === "dark" || (!theme && getSystemTheme() === "dark")) {
       scene.background = new Color(0x32373d);
     }
     else {
