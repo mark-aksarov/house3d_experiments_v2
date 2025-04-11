@@ -12,6 +12,7 @@ import useUpdateHouseModel from '@/hooks/useUpdateHouseModel';
 
 export default function App() {
   const [isFirstModelRenderingComplete, setIsFirstModelRenderingComplete] = useState(false);
+  const { selectedModelName } = useModels();
 
   const { status: modelsLoadStatus } = useModels();
   const { status: texturesLoadStatus } = useTextures();
@@ -19,7 +20,7 @@ export default function App() {
   const [aboutSheetOpen, setAboutSheetOpen] = useState(false);
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
 
-  const showLoadingOverlay = !isFirstModelRenderingComplete || modelsLoadStatus !== "success" || texturesLoadStatus !== "success";
+  const showLoadingOverlay = !isFirstModelRenderingComplete || modelsLoadStatus !== "success" || texturesLoadStatus !== "success" || !selectedModelName;
 
   useResizeWindow();
   useWelcomeToast({ showLoadingOverlay });
