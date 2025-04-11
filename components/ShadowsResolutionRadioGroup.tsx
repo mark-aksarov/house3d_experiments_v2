@@ -2,27 +2,28 @@ import Radio from "@/uikit/Radio";
 import Stack from "@/uikit/Stack";
 import { useUndo } from "@/context/UndoContext";
 import RadioGroup from "@/uikit/Radio/RadioGroup";
-import { ShadowsResolution, useSettings } from "@/context/SettingsContext";
+import { ShadowsResolution, useSettings, useSettingsDispatch } from "@/context/SettingsContext";
 
 const shadowResolutions = ["1024x1024", "2048x2048", "4096x4096"];
 
 export default function ShadowsResolutionRadioGroup() {
-  const { shadowsResolution, setShadowsResolution } = useSettings();
+  const state = useSettings();
+  const dispatch = useSettingsDispatch();
   const { addAction } = useUndo();
 
   function changeShadowsResolution(value: ShadowsResolution) {
-    setShadowsResolution(value);
+    dispatch({ type: "shadowsResolutionChanged", payload: value });
 
     addAction(
-      () => setShadowsResolution(shadowsResolution),
-      () => setShadowsResolution(value),
+      () => dispatch({ type: "shadowsResolutionChanged", payload: state.shadowsResolution }),
+      () => dispatch({ type: "shadowsResolutionChanged", payload: value }),
     )
   }
 
   return (
     <Stack direction="vertical" spacing={4}>
       <RadioGroup
-        value={shadowsResolution}
+        value={state.shadowsResolution}
         name="shadowsResolution"
         onChange={(value) => changeShadowsResolution(value as ShadowsResolution)}
       >

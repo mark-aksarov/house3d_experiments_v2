@@ -1,25 +1,26 @@
 import Switch from "@/uikit/Switch";
 import { useUndo } from "@/context/UndoContext";
-import { useSettings } from "@/context/SettingsContext";
+import { useSettings, useSettingsDispatch } from "@/context/SettingsContext";
 
 export default function ShadowsEnabledSwitch() {
-  const { shadowsEnabled, setShadowsEnabled } = useSettings();
+  const settings = useSettings();
+  const dispatch = useSettingsDispatch();
   const { addAction } = useUndo();
 
   function changeShadowsEnabled(value: boolean) {
-    setShadowsEnabled(value);
+    dispatch({ type: "shadowsEnabledChanged", payload: value });
 
     addAction(
-      () => setShadowsEnabled(shadowsEnabled),
-      () => setShadowsEnabled(value),
+      () => dispatch({ type: "shadowsEnabledChanged", payload: settings.shadowsEnabled }),
+      () => dispatch({ type: "shadowsEnabledChanged", payload: value }),
     )
   }
 
   return (
     <Switch
       data-testid="shadows-enabled-switch"
-      checked={shadowsEnabled}
-      onChange={() => changeShadowsEnabled(!shadowsEnabled)}
+      checked={settings.shadowsEnabled}
+      onChange={() => changeShadowsEnabled(!settings.shadowsEnabled)}
     />
   )
 }

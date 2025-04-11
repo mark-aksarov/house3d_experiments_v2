@@ -22,8 +22,6 @@ export default function App() {
 
   const showLoadingOverlay = !isFirstModelRenderingComplete || modelsLoadStatus !== "success" || texturesLoadStatus !== "success";
 
-  useUpdateToneMappingExposure();
-  useUpdateCameraFov();
   useResizeWindow();
   useWelcomeToast({ showLoadingOverlay });
 

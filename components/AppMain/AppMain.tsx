@@ -26,14 +26,17 @@ import SettingsBottomSheet from '../SettingsBottomSheet';
 import FoundationSideSheet from '../FoundationSideSheet';
 import { useGetCanvasRef } from '@/context/CanvasContext';
 import CameraFovBottomSheet from '../CameraFovBottomSheet';
+import useUpdateCameraFov from '@/hooks/useUpdateCameraFov';
 import FoundationBottomSheet from '../FoundationBottomSheet';
 import AppearanceBottomSheet from '../AppearanceBottomSheet';
 import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
+import useUpdateToneMapping from '@/hooks/useUpdateToneMapping';
 import useUpdateSceneBackground from "@/hooks/useUpdateSceneBackground";
 import ShadowsResolutionBottomSheet from '../ShadowsResolutionBottomSheet';
 import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
+import useUpdateToneMappingExposure from '@/hooks/useUpdateToneMappingExposure';
 import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
 import HouseElementsBottomSheet from '../MaterialsBottomSheet/MaterialsBottomSheet';
 
@@ -58,6 +61,9 @@ export default function AppMain({
   useSunLight();
   usePointLight();
   useGround();
+  useUpdateToneMappingExposure();
+  useUpdateCameraFov();
+  useUpdateToneMapping();
   useUpdateSceneBackground();
   useHouse(setIsFirstModelRenderingComplete);
 

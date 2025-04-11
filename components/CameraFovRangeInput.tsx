@@ -1,26 +1,21 @@
-import { useState } from "react";
-import { useThree } from "@/context/ThreeContext";
 import UndoableRangeInput from "./UndoableRangeInput";
 import { useCameraFovRange } from "@/hooks/useCameraFovRange";
+import { useSettings, useSettingsDispatch } from "@/context/SettingsContext";
 
 export default function CameraFovRangeInput() {
-  const { getCamera, render } = useThree();
-  const [value, setValue] = useState(getCamera().fov);
+  const settings = useSettings();
   const fovRange = useCameraFovRange();
+  const dispatch = useSettingsDispatch();
 
-  function changeFov(value: number) {
-    const camera = getCamera();
-    camera.fov = value;
-    camera.updateProjectionMatrix();
-    setValue(value);
-    render();
+  function updateCameraFov(value: number) {
+    dispatch({ type: "cameraFieldOfViewChanged", payload: value });
   }
 
   return (
     <UndoableRangeInput
       data-testid="camera-fov-range-input"
-      value={value}
-      onChange={changeFov}
+      value={settings.cameraFieldOfView}
+      onChange={updateCameraFov}
       min={fovRange[0]}
       max={fovRange[1]}
       step={1}

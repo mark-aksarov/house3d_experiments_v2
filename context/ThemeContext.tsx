@@ -42,7 +42,7 @@ export const ThemeProvider = ({
         initialTheme = storedTheme;
       }
 
-      return initialTheme;
+      return initialTheme as Theme | null;
     }
     return null;
   });

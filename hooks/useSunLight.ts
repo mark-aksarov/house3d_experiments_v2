@@ -8,7 +8,7 @@ import { disposeObject } from "@/utils/disposeResources";
 export default function useSunLight() {
   const objectRef = useRef<DirectionalLight | null>(null);
   const { theme } = useTheme();
-  const { shadowsEnabled, shadowsResolution } = useSettings();
+  const state = useSettings();
   const { getScene, render } = useThree();
 
   useEffect(() => {
@@ -47,27 +47,27 @@ export default function useSunLight() {
   //toggle shadows
   useEffect(() => {
     if (objectRef.current) {
-      objectRef.current.castShadow = shadowsEnabled;
+      objectRef.current.castShadow = state.shadowsEnabled;
       render();
     }
-  }, [shadowsEnabled, render])
+  }, [state.shadowsEnabled, render])
 
   //update shadows resolution
   useEffect(() => {
     if (objectRef.current) {
       let mapSize;
 
-      if (shadowsResolution === "1024x1024") {
+      if (state.shadowsResolution === "1024x1024") {
         mapSize = 1024;
       }
-      else if (shadowsResolution === "2048x2048") {
+      else if (state.shadowsResolution === "2048x2048") {
         mapSize = 2048;
       }
-      else if (shadowsResolution === "4096x4096") {
+      else if (state.shadowsResolution === "4096x4096") {
         mapSize = 4096;
       }
       else {
-        throw new Error(`Unknown shadowsResolution: ${shadowsResolution}`);
+        throw new Error(`Unknown shadowsResolution: ${state.shadowsResolution}`);
       }
 
       objectRef.current.shadow.mapSize.set(mapSize, mapSize);
@@ -76,5 +76,5 @@ export default function useSunLight() {
       }
       render();
     }
-  }, [shadowsResolution, render])
+  }, [state.shadowsResolution, render])
 }

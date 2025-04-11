@@ -6,7 +6,7 @@ import { disposeObject } from "@/utils/disposeResources";
 
 const useAmbientLight = () => {
   const objectRef = useRef<AmbientLight | null>(null);
-  const { ambientLightIntensity } = useSettings();
+  const state = useSettings();
   const { getScene, render } = useThree();
 
   useEffect(() => {
@@ -27,10 +27,10 @@ const useAmbientLight = () => {
   //toggle visibility
   useEffect(() => {
     if (objectRef.current) {
-      objectRef.current.intensity = ambientLightIntensity;
+      objectRef.current.intensity = state.ambientLightIntensity;
       render();
     }
-  }, [ambientLightIntensity, render])
+  }, [state.ambientLightIntensity, render])
 }
 
 export default useAmbientLight;

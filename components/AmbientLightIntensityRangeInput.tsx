@@ -1,14 +1,19 @@
 import UndoableRangeInput from "./UndoableRangeInput";
-import { useSettings } from "@/context/SettingsContext";
+import { useSettings, useSettingsDispatch } from "@/context/SettingsContext";
 
 export default function AmbientLightIntensityRangeInput() {
-  const { ambientLightIntensity, setAmbientLightIntensity } = useSettings();
+  const settings = useSettings();
+  const dispatch = useSettingsDispatch();
+
+  function updateAmbientLightIntensity(value: number) {
+    dispatch({ type: "ambientLightIntensityChanged", payload: value });
+  }
 
   return (
     <UndoableRangeInput
       data-testid="ambient-light-intensity-range-input"
-      value={ambientLightIntensity}
-      onChange={setAmbientLightIntensity}
+      value={settings.ambientLightIntensity}
+      onChange={updateAmbientLightIntensity}
       min={1}
       max={10}
       step={1}
