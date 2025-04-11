@@ -6,12 +6,14 @@ import styles from './AppMain.module.scss';
 import RoofSideSheet from '../RoofSideSheet';
 import SceneControls from '../SceneControls';
 import useSunLight from "@/hooks/useSunLight";
+import DoorsSideSheet from '../DoorsSideSheet';
 import WallsSideSheet from '../WallsSideSheet';
 import AppSideToolBar from '../AppSideToolBar';
 import CommonSideSheet from '../CommonSideSheet';
 import { Dispatch, SetStateAction } from "react";
 import RoofBottomSheet from '../RoofBottomSheet';
 import usePointLight from "@/hooks/usePointLight";
+import DoorsBottomSheet from '../DoorsBottomSheet';
 import WindowsSideSheet from '../WindowsSideSheet';
 import AppBottomToolBar from '../AppBottomToolBar';
 import WallsBottomSheet from '../WallsBottomSheet';
@@ -86,6 +88,7 @@ export default function AppMain({
       <WallsBottomSheet />
       <WindowsBottomSheet />
       <FoundationBottomSheet />
+      <DoorsBottomSheet />
 
       <SettingsSideSheet />
       <AppearanceSideSheet />
@@ -96,6 +99,7 @@ export default function AppMain({
       <WallsSideSheet />
       <WindowsSideSheet />
       <FoundationSideSheet />
+      <DoorsSideSheet />
 
       <SceneControls />
 

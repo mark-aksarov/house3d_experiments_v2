@@ -63,7 +63,7 @@ const initialState: MaterialsState = {
     glassOpacity: 0.5
   },
   doors: {
-    color: "#632D11"
+    color: "#422f1e"
   },
 };
 
