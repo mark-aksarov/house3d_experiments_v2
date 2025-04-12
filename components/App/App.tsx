@@ -8,7 +8,6 @@ import { useModels } from '@/context/ModelsContext';
 import useResizeWindow from '@/hooks/useResizeWindow';
 import useWelcomeToast from '@/hooks/useWelcomeToast';
 import { useTextures } from '@/context/TexturesContext';
-import useUpdateHouseModel from '@/hooks/useUpdateHouseModel';
 
 export default function App() {
   const [isFirstModelRenderingComplete, setIsFirstModelRenderingComplete] = useState(false);
@@ -25,7 +24,6 @@ export default function App() {
   useResizeWindow();
   useWelcomeToast({ showLoadingOverlay });
   useUndoToast({ showLoadingOverlay });
-  useUpdateHouseModel();
 
   useEffect(() => {
     if (texturesLoadStatus === "error" || modelsLoadStatus === "error") {

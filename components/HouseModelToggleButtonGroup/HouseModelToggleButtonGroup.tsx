@@ -8,31 +8,26 @@ import { ModelName, useModels, useModelsDispatch } from "@/context/ModelsContext
 
 import house1 from 'public/images/house1.jpg';
 import house2 from 'public/images/house2.jpg';
-import useIsMobileOrTablet from "@/hooks/useIsMobileOrTablet";
 
 const houses: {
   value: ModelName,
   image: StaticImageData,
   label: string,
-  isDesktopOnly: boolean
 }[] = [
     {
       value: "House1",
       image: house1,
       label: "House 1",
-      isDesktopOnly: true
     },
     {
       value: "House2",
       image: house2,
       label: "House 2",
-      isDesktopOnly: false
     }
   ];
 
 export default function HouseModelToggleButtonGroup() {
   const { selectedModelName } = useModels();
-  const isMobileOrTablet = useIsMobileOrTablet();
 
   const dispatch = useModelsDispatch();
   const { addAction } = useUndo();
@@ -55,16 +50,7 @@ export default function HouseModelToggleButtonGroup() {
     )
   }
 
-  let content = houses.filter(({ isDesktopOnly }) => {
-    if (
-      isMobileOrTablet && !isDesktopOnly ||
-      !isMobileOrTablet && isDesktopOnly
-    ) {
-      return true;
-    }
-
-    return false;
-  }).map(({ value, image, label }) => (
+  let content = houses.map(({ value, image, label }) => (
     <ToggleButton
       key={value}
       as={ImageButton}

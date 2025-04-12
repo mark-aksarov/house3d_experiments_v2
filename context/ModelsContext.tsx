@@ -15,7 +15,7 @@ const modelLoadData: { modelName: ModelName; url: string }[] = [
 export type Status = 'pending' | 'success' | 'error';
 
 export interface State {
-  selectedModelName: ModelName | null;
+  selectedModelName: ModelName;
   models: ModelCollection | null;
   status: Status;
 }
@@ -27,7 +27,7 @@ export type Action =
   | { type: 'selectedModelNameChanged'; modelName: ModelName };
 
 const initialState: State = {
-  selectedModelName: null,
+  selectedModelName: "House2",
   models: null,
   status: 'pending',
 };
