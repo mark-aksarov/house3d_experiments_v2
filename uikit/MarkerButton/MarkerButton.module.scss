@@ -1,0 +1,102 @@
+@use 'uikit/styles/mixins';
+
+@layer uikit {
+  .markerButton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.75;
+
+    @include mixins.focus-outline;
+
+    &.large {
+      width: 2.125rem;
+      height: 2.125rem;
+
+      &::before {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+    }
+
+    &.regular {
+      width: 1.875rem;
+      height: 1.875rem;
+
+      &::before {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+
+    &.small {
+      width: 1.625rem;
+      height: 1.625rem;
+
+      &::before {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active,
+    &:global(.active) {
+      &::before {
+        content: '';
+        transform: scale(1.5);
+      }
+    }
+
+    &.brand {
+      border: 1px solid var(--color-border-brand);
+
+      &::before {
+        background-color: var(--color-border-brand);
+      }
+    }
+
+    &.neutral {
+      border: 1px solid var(--color-border-contrasted);
+
+      &::before {
+        background-color: var(--color-border-contrasted);
+      }
+    }
+
+    &.danger {
+      border: 1px solid var(--color-border-danger);
+
+      &::before {
+        background-color: var(--color-border-danger);
+      }
+    }
+
+    &.success {
+      border: 1px solid var(--color-border-success);
+
+      &::before {
+        background-color: var(--color-border-success);
+      }
+    }
+
+    &:disabled {
+      pointer-events: none;
+      border: 1px solid var(--color-border-tertiary);
+
+      &::before {
+        background-color: var(--color-surface-secondary);
+      }
+    }
+
+    &::before {
+      content: '';
+      border-radius: 50%;
+      transition: transform 150ms;
+    }
+  }
+}

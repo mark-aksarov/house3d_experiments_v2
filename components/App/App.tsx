@@ -47,6 +47,7 @@ export default function App() {
         aboutModalOpen={aboutModalOpen}
         setAboutSheetOpen={setAboutSheetOpen}
         setAboutModalOpen={setAboutModalOpen}
+        isFirstModelRenderingComplete={isFirstModelRenderingComplete}
         setIsFirstModelRenderingComplete={setIsFirstModelRenderingComplete}
       />
     </div>

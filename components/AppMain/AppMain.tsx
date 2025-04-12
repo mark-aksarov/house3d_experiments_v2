@@ -41,13 +41,15 @@ import ToneMappingExposureBottomSheet from '../ToneMappingExposureBottomSheet';
 import useUpdateToneMappingExposure from '@/hooks/useUpdateToneMappingExposure';
 import AmbientLightIntensityBottomSheet from '../AmbientLightIntensityBottomSheet';
 import HouseElementsBottomSheet from '../MaterialsBottomSheet/MaterialsBottomSheet';
+import Markers from '../Markers/Markers';
 
 interface AppMainProps {
   aboutSheetOpen: boolean;
   aboutModalOpen: boolean;
   setAboutSheetOpen: Dispatch<SetStateAction<boolean>>;
   setAboutModalOpen: Dispatch<SetStateAction<boolean>>;
-  setIsFirstModelRenderingComplete: Dispatch<SetStateAction<boolean>>
+  isFirstModelRenderingComplete: boolean;
+  setIsFirstModelRenderingComplete: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function AppMain({
@@ -55,6 +57,7 @@ export default function AppMain({
   aboutModalOpen,
   setAboutSheetOpen,
   setAboutModalOpen,
+  isFirstModelRenderingComplete,
   setIsFirstModelRenderingComplete
 }: AppMainProps) {
   const getCanvasRef = useGetCanvasRef();
@@ -72,6 +75,8 @@ export default function AppMain({
   return (
     <main className={styles.main}>
       <canvas className={styles.canvas} ref={getCanvasRef()} />
+
+      <Markers isFirstModelRenderingComplete={isFirstModelRenderingComplete} />
 
       <SettingsBottomSheet />
       <ToneMappingBottomSheet />

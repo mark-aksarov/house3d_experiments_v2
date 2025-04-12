@@ -15,8 +15,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   variant?: ButtonVariant;
   color?: ButtonColor;
-  iconStart?: ReactElement;
-  iconEnd?: ReactElement;
+  iconStart?: ReactElement<any>;
+  iconEnd?: ReactElement<any>;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
