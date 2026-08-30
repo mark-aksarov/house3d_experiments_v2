@@ -19,10 +19,6 @@ export default function AboutContent() {
         </Typography>
 
         <Typography as="p" variant='body2'>
-          Users can navigate within the room, adjust the renderer, scene, and camera, and interact with objects in real time.
-        </Typography>
-
-        <Typography as="p" variant='body2'>
           It is designed for architectural visualization, house design previews, and interactive space planning.
         </Typography>
       </Stack>
