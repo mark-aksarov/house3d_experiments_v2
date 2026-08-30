@@ -1,56 +1,64 @@
 const colors = [
-  {
-    name: "white",
-    hex: "#ffffff",
-  },
-  {
-    name: "light grey",
-    hex: "#c0c2c1",
-  },
-  {
-    name: "grey",
-    hex: "#757e7d",
-  },
-  {
-    name: "dark grey",
-    hex: "#4c4c4c",
-  },
-  {
-    name: "yellow",
-    hex: "#fbc701",
-  },
-  {
-    name: "nut brown",
-    hex: "#ab5b20",
-  },
-  {
-    name: "brown",
-    hex: "#634a33",
-  },
-  {
-    name: "dark brown",
-    hex: "#422f1e",
-  },
-  {
-    name: "red",
-    hex: "#a9030d",
-  },
-  {
-    name: "lime",
-    hex: "#6ca62d",
-  },
-  {
-    name: "green",
-    hex: "#05754b",
-  },
-  {
-    name: "cyan",
-    hex: "#069896",
-  },
-  {
-    name: "blue",
-    hex: "#0473bb",
-  },
+{
+  name: "white",
+  hex: "#ffffff",
+},
+{
+  name: "cream",
+  hex: "#f2eadc",
+},
+{
+  name: "light grey",
+  hex: "#c0c2c1",
+},
+{
+  name: "grey",
+  hex: "#757e7d",
+},
+{
+  name: "dark grey",
+  hex: "#4c4c4c",
+},
+{
+  name: "beige",
+  hex: "#d6c2a5",
+},
+{
+  name: "sand",
+  hex: "#c9ad83",
+},
+{
+  name: "terracotta",
+  hex: "#b65f3a",
+},
+{
+  name: "brown",
+  hex: "#634a33",
+},
+{
+  name: "dark brown",
+  hex: "#422f1e",
+},
+{
+  name: "green",
+  hex: "#66735a",
+},
+{
+  name: "dark green",
+  hex: "#3f5141",
+},
+{
+  name: "blue",
+  hex: "#5f7485",
+},
+{
+  name: "dark blue",
+  hex: "#354a5a",
+},
+{
+  name: "black",
+  hex: "#252525",
+},
 ];
 
 export default colors;
