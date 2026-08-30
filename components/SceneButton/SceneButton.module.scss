@@ -5,6 +5,6 @@
     transform: scale(0.925);
   }
 
-  box-shadow: inset var(--color-shadow) 0px -2px 2px 0px,
+  box-shadow: rgb(var(--color-black) / 5%) 0px 2px 2px 0px,
   var(--color-shadow) 0px 2px 2px 0px;
 }
