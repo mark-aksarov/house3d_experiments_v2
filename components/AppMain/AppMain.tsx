@@ -31,7 +31,6 @@ import CameraFovBottomSheet from '../CameraFovBottomSheet';
 import useUpdateCameraFov from '@/hooks/useUpdateCameraFov';
 import FoundationBottomSheet from '../FoundationBottomSheet';
 import AppearanceBottomSheet from '../AppearanceBottomSheet';
-import MarkerSizeBottomSheet from '../MarkerSizeBottomSheet';
 import HouseModelBottomSheet from '../HouseModelBottomSheet';
 import ToneMappingBottomSheet from '../ToneMappingBottomSheet';
 import useUpdateToneMapping from '@/hooks/useUpdateToneMapping';
@@ -78,7 +77,6 @@ export default function AppMain({
       <ToneMappingExposureBottomSheet />
       <CameraFovBottomSheet />
       <AppearanceBottomSheet />
-      <MarkerSizeBottomSheet />
       <HouseModelBottomSheet />
       <HouseElementsBottomSheet />
       <AmbientLightIntensityBottomSheet />
