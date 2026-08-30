@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import styles from './SceneButton.module.scss';
 import IconButton, { IconButtonProps } from "@/uikit/IconButton";
 
-interface SceneButtonProps extends Omit<IconButtonProps, "variant"> { }
+type SceneButtonProps = Omit<IconButtonProps, "variant">;
 
 export default function SceneButton({
   color = "neutral",

@@ -39,10 +39,6 @@ export default function SettingsBottomSheet() {
     openSheet("cameraFov");
   }
 
-  function openCameraMovingBottomSheet() {
-    openSheet("cameraMoving");
-  }
-
   function openAmbientLightIntensityBottomSheet() {
     openSheet("ambientLightIntensity");
   }

@@ -10,7 +10,7 @@ interface AppSideToolBarButtonProps extends ButtonHTMLAttributes<HTMLButtonEleme
   icon: ReactElement
 }
 
-const AppSideToolBarButton = forwardRef<HTMLButtonElement, AppSideToolBarButtonProps>(function ({
+const AppSideToolBarButton = forwardRef<HTMLButtonElement, AppSideToolBarButtonProps>(function AppSideToolBarButton({
   icon,
   className,
   ...props

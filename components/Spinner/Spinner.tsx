@@ -2,7 +2,7 @@ import classNames from "classnames";
 import styles from './Spinner.module.scss';
 import React, { HTMLAttributes } from "react";
 
-interface SpinnerProps extends HTMLAttributes<HTMLDivElement> { }
+type SpinnerProps = HTMLAttributes<HTMLDivElement>;
 
 const Spinner = ({
   className,

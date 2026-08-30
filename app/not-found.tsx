@@ -7,7 +7,8 @@ export default function NotFound() {
       title="404"
       subTitle="Page Not Found"
       message="Sorry, the page you're looking for doesn't exist."
-      children={<BackToHomeButton />}
-    />
+    >
+      <BackToHomeButton />
+    </ErrorContent>
   )
 }

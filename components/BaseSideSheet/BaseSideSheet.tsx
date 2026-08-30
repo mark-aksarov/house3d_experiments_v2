@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './BaseSideSheet.module.scss';
 import SideSheet, { SideSheetProps } from "@/uikit/SideSheet/SideSheet";
 
-interface BaseSideSheetProps extends SideSheetProps { }
+type BaseSideSheetProps = SideSheetProps;
 
 export default function BaseSideSheet({
   className,

@@ -50,7 +50,7 @@ export default function HouseModelToggleButtonGroup() {
     )
   }
 
-  let content = houses.map(({ value, image, label }) => (
+  const content = houses.map(({ value, image, label }) => (
     <ToggleButton
       key={value}
       as={ImageButton}

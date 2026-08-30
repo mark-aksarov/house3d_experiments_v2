@@ -19,17 +19,16 @@ export default function Error({
       title="500"
       subTitle="Internal Server Error"
       message={error.message}
-      children={
-        <Button
-          iconStart={<RefreshCcwIcon />}
-          size={isMobileOrTablet ? "regular" : "large"}
-          variant="outlined"
-          color="success"
-          onClick={() => reset()}
-        >
-          Reload
-        </Button>
-      }
-    />
+    >
+      <Button
+        iconStart={<RefreshCcwIcon />}
+        size={isMobileOrTablet ? "regular" : "large"}
+        variant="outlined"
+        color="success"
+        onClick={() => reset()}
+      >
+        Reload
+      </Button>
+    </ErrorContent>
   )
 }
