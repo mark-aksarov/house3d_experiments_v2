@@ -41,7 +41,7 @@ export default function WindowsBottomSheet() {
 
       <SheetBody className={styles.sheetBody}>
         <Tabs value={tab} onChange={(tab) => setTab(tab)}>
-          <Stack spacing={7} justifyContent="center">
+          <Stack spacing={7} justifyContent="center" wrap="nowrap">
             <Tab
               id="sashColorTab"
               icon={<PaletteIcon />}
