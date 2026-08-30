@@ -3,7 +3,7 @@
 import { createContext, useContext } from 'react';
 
 interface SheetContextProps {
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   headingId: string;
   open: boolean;
   close: () => void;

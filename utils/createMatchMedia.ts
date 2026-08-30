@@ -1,7 +1,7 @@
 import mediaQuery from 'css-mediaquery';
 
-export default function createMatchMedia(width) {
-  return (query) => ({
+export default function createMatchMedia(width: number) {
+  return (query: string): MediaQueryList => ({
     matches: mediaQuery.match(query, {
       width,
     }),
@@ -12,5 +12,5 @@ export default function createMatchMedia(width) {
     addEventListener: () => { },
     removeEventListener: () => { },
     dispatchEvent: () => false,
-  });
+  } as unknown as MediaQueryList);
 }

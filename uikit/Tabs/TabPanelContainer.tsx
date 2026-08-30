@@ -9,7 +9,7 @@ export default function TabPanelContainer({
 }: {
   children: React.ReactNode
 }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   return (
     <div ref={ref} className={styles.tabPanelContainer}>

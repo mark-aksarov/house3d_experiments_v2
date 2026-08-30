@@ -17,7 +17,7 @@ describe('Toasts', () => {
     );
   }
 
-  function renderWithProvider(ui) {
+  function renderWithProvider(ui: React.ReactElement) {
     return render(
       <ToastsProvider autoCloseDuration={0}>
         {ui}

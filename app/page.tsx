@@ -1,7 +1,7 @@
 "use client"
 
 import App from '@/components/App';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { UndoProvider } from '@/context/UndoContext';
 import { ThreeProvider } from '@/context/ThreeContext';
 import { CanvasContext } from '@/context/CanvasContext';
@@ -17,7 +17,15 @@ import { OrbitControlsProvider } from '@/context/OrbitControlsContext';
 import { AppBottomToolBarProvider } from '@/components/AppBottomToolBar';
 
 export default function House3D() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  if (!isClient) return null;
 
   return (
     <>

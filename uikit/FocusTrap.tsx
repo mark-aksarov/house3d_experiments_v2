@@ -25,8 +25,8 @@ export default function FocusTrap({
   restoreFocus = true,
   children
 }: FocusTrapProps) {
-  const previousFocusRef = useRef<HTMLElement | null>();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const focusableNodesRef = useRef<HTMLElement[]>([]);
 
   const updateFocusableNodes = useCallback(() => {

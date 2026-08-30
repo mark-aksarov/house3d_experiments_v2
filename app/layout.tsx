@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import styles from './layout.module.scss';
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ToastsProvider } from "@/context/ToastsContext";
+import { UndoProvider } from "@/context/UndoContext";
 
 const montserrat = Inter({
   subsets: ['latin'],
@@ -42,9 +43,11 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <ToastsProvider containerClassName={styles.toastContainer}>
-            {children}
-          </ToastsProvider>
+          <UndoProvider>
+            <ToastsProvider containerClassName={styles.toastContainer}>
+              {children}
+            </ToastsProvider>
+          </UndoProvider>
         </ThemeProvider>
       </body>
     </html>

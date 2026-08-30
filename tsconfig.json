@@ -39,7 +39,7 @@
       "@/uikit/*": [
         "uikit/*"
       ]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",

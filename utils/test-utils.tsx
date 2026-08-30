@@ -51,11 +51,11 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
                       <CanvasContext.Provider value={canvasRef}>
                         <ThreeContext.Provider value={{
                           render: mockedRenderer.render,
-                          getCamera: () => mockedCamera,
+                          getCamera: () => mockedCamera as unknown as any,
                           getScene: () => scene,
-                          getRenderer: () => mockedRenderer,
+                          getRenderer: () => mockedRenderer as unknown as any,
                           isFirstRenderComplete: true
-                        }}>
+                        } as unknown as any}>
                           <OrbitControlsProvider>
                             <SettingsProvider>
                               <MaterialsProvider>

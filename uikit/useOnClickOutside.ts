@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-export interface UseOnClickOutsideProps<T> {
-  ref: React.RefObject<T>;
+export interface UseOnClickOutsideProps<T extends HTMLElement = HTMLElement> {
+  ref: React.RefObject<T | null>;
   callback: (event: MouseEvent) => void
 }
 
-export default function useOnClickOutside<T extends HTMLElement>({
+export default function useOnClickOutside<T extends HTMLElement = HTMLElement>({
   ref,
   callback
 }: UseOnClickOutsideProps<T>) {

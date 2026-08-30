@@ -12,7 +12,7 @@ export default function MarkerSizeRadioGroup() {
       <RadioGroup
         value={checkedName}
         name="markerSize"
-        onChange={(value: string) => setCheckedName(value)}
+        onChange={(value: string | number) => setCheckedName(String(value))}
       >
         {["Small", "Regular", "Large"].map((value) => (
           <Radio id={value} key={value} value={value} label={value} />

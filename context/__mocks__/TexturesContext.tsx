@@ -3,12 +3,6 @@ import { State, TextureCollection } from '../TexturesContext';
 import React, { createContext, useContext, ReactNode } from 'react';
 
 const mockTextures: TextureCollection = {
-  Asphalt029A: {
-    color: new Texture(),
-    ao: new Texture(),
-    roughness: new Texture(),
-    normal: new Texture(),
-  },
   Asphalt029B: {
     color: new Texture(),
     ao: new Texture(),

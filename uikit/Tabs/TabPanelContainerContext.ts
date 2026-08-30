@@ -2,7 +2,7 @@
 
 import { RefObject, createContext, useCallback, useContext } from 'react';
 
-export const TabPanelContainerContext = createContext<RefObject<HTMLElement> | null>(null);
+export const TabPanelContainerContext = createContext<RefObject<HTMLElement | null> | null>(null);
 
 export const useGetTabPanelContainerRef = () => {
   const canvasRef = useContext(TabPanelContainerContext);

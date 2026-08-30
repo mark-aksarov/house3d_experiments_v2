@@ -6,7 +6,7 @@ describe("useOnClickOutside", () => {
   it("should call callback when clicking outside the referenced element", () => {
     const callback = jest.fn();
     function TestComponent() {
-      const ref = useRef(null);
+      const ref = useRef<HTMLDivElement | null>(null);
       useOnClickOutside({ ref, callback });
       return (
         <div>

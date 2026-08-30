@@ -4,7 +4,7 @@ import React, { ReactElement } from "react";
 import { useListItem } from "./ListItemContext";
 
 interface ListItemProps {
-  children: ReactElement;
+  children: ReactElement<any, any>;
 }
 
 export default function ListItemIcon({ children }: ListItemProps) {

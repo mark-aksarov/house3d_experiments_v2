@@ -30,7 +30,7 @@ interface TooltipProps {
   zIndex?: number | string;
   className?: string;
   arrowClassName?: string;
-  children: ReactElement;
+  children: ReactElement<any, any>;
 }
 
 export default function Tooltip({

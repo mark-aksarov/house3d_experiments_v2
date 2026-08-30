@@ -6,7 +6,7 @@ import Button, { ButtonProps } from '../Button';
 import React, { forwardRef, ReactElement } from 'react';
 
 export interface IconButtonProps extends ButtonProps {
-  icon: ReactElement,
+  icon: ReactElement<any, any>,
   rounded?: boolean,
 }
 

@@ -131,6 +131,7 @@ export function ModelsProvider({ children }: { children: ReactNode }) {
   const mockState: State = {
     models: mockModels,
     status: 'success',
+    selectedModelName: 'House1',
   };
 
   return (

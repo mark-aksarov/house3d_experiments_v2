@@ -15,8 +15,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   variant?: ButtonVariant;
   color?: ButtonColor;
-  iconStart?: ReactElement;
-  iconEnd?: ReactElement;
+  iconStart?: ReactElement<any, any>;
+  iconEnd?: ReactElement<any, any>;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
@@ -67,7 +67,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
         iconEnd &&
         (
           iconEnd.props.size
-            ? iconStart
+            ? iconEnd
             : React.cloneElement(
               iconEnd,
               {

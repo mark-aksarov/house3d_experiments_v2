@@ -10,7 +10,7 @@ type MenuItemButtonSize = "large" | "regular" | "small";
 type MenuItemButtonProps<T extends ElementType> = ComponentPropsWithRef<T> & {
   as?: T,
   size?: MenuItemButtonSize,
-  icon?: ReactElement;
+  icon?: ReactElement<any, any>;
   disabled?: boolean;
   closeMenuOnClick?: boolean;
   children: ReactNode

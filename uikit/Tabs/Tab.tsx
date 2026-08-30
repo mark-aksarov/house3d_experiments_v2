@@ -11,7 +11,7 @@ type TabSize = "large" | "regular" | "small";
 interface TabsProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   id: string,
   size?: TabSize,
-  icon?: ReactElement
+  icon?: ReactElement<any, any>
   label: string
 }
 
