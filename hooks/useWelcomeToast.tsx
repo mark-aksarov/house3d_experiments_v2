@@ -24,7 +24,7 @@ export default function useWelcomeToast({
           addToast({
             id: "welcome",
             title: 'Welcome',
-            message: "Welcome to House3D. Pass the guide to explore the main app features.",
+            message: "Welcome to House3D. A simple solution for configuring house in browser.",
             size: toastSize
           })
         },
